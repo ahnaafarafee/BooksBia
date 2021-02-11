@@ -124,6 +124,67 @@ main {
   }
 }
 
+// buttons 
+.cta {
+  &,
+  &:link,
+  &:visited {
+    background-color: $color-primary;
+    color: $color-grey;
+    font-size: 1.3rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 2rem 2rem;
+    border-radius: 1rem;
+    border: 1px solid $color-grey;
+
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  &:hover {
+    background-color: white;
+    color: $color-black;
+    border: 1px solid $color-grey;
+  }
+
+  &--src {
+    padding: 2rem 2rem;
+  }
+
+  &--sec {
+    background-color: $color-primary;
+    color: $color-grey;
+    font-size: 1.3rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 2rem 2rem;
+    border-radius: 1rem;
+    border: 1px solid $color-grey;
+
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  &-feature {
+    background-color: rgba($color-primary, 0.6) !important;
+    margin-top: 6rem;
+    margin-right: 3rem;
+    display: inline-block;
+
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+      background-color: rgba($color-primary, 0.8) !important;
+      color: $color-white !important;
+    }
+  }
+}
+
+
 //header
 .header {
   &__search-box {
