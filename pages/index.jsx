@@ -1,9 +1,10 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.scss";
+import Feature from "../components/Feature/feature";
+// import styles from "../styles/Home.module.scss";
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>BooksBia | Download and Read Ebooks For Free</title>
         <link rel="icon" href="/favicon.ico" />
@@ -17,7 +18,9 @@ export default function Home() {
         />
       </Head>
 
-      <h1>Finally 😁💔</h1>
+      <main className="container">
+        <Feature />
+      </main>
     </div>
   );
 }

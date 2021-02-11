@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
+
 $color-primary: #17202a;
 $color-primary-dark: #001d3f;
 $color-primary-light: #101d2c;
@@ -124,7 +126,7 @@ main {
   }
 }
 
-// buttons 
+// buttons
 .cta {
   &,
   &:link,
@@ -183,7 +185,6 @@ main {
     }
   }
 }
-
 
 //header
 .header {
@@ -337,4 +338,168 @@ main {
   opacity: 1;
   pointer-events: all;
   transform: translateY(0px);
+}
+
+// Blog Feature Box
+.feature {
+  // padding: 1.5rem;
+  padding-top: 2rem;
+  @include respond(tab-port) {
+    padding-top: 0;
+  }
+  background-color: $color-grey;
+
+  &__box {
+    background-image: url(/assets/pen-and-paper.jpg);
+    background-size: cover;
+    background-position: center; // to center the image
+    align-items: center;
+    text-align: center;
+    padding: 4.5rem;
+    border-radius: 1.5rem;
+
+    &--header {
+      user-select: none;
+      font-size: 3rem;
+      font-weight: 600;
+      display: inline-block;
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-white, 0.85),
+        rgba($color-grey, 0.85)
+      );
+
+      color: $color-grey-3;
+      padding: 1rem 1.5rem;
+      --webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+
+      &:hover {
+        color: $color-grey-2;
+      }
+    }
+  }
+
+  &__svg {
+    padding: 3rem;
+
+    @include respond(tab-land) {
+      padding: 0;
+      width: 35rem;
+    }
+
+    &--box {
+      @include respond(tab-port) {
+        display: none;
+      }
+    }
+  }
+}
+
+// Footer styles
+
+.footer {
+  background-color: rgba($color-primary-light, 0.83);
+  color: $color-white;
+
+  &__logo {
+    &-box {
+      text-align: center;
+    }
+    @include respond(tab-land) {
+      width: 20rem;
+      height: 20rem;
+    }
+  }
+
+  &__navigation {
+    border-top: 1px solid $color-grey;
+    padding-top: 2rem;
+    margin-left: 3rem;
+    align-items: center;
+
+    @include respond(tab-land) {
+      margin-left: 0;
+      // width: 80%;
+      text-align: center;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+  }
+
+  &__item {
+    margin-right: 1.8rem;
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      color: $color-white;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 1.2rem;
+      display: inline-block;
+    }
+
+    &:hover {
+      color: $color-grey-2;
+    }
+  }
+
+  &__follow-section {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    margin-top: 3.4rem;
+    user-select: none;
+
+    @include respond(tab-land) {
+      margin-bottom: 5rem;
+    }
+
+    a {
+      text-decoration: none;
+
+      i {
+        color: $color-grey;
+        font-size: 2.4rem;
+
+        &:hover {
+          color: $color-grey-2;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  &__description {
+    border-top: 1px solid $color-grey;
+    padding-top: 2rem;
+    width: 80%;
+    float: right;
+    margin-right: 4rem;
+    font-size: 1.2rem;
+    user-select: none;
+  }
+
+  &__copyright {
+    margin-top: 3rem;
+    background-color: $color-primary;
+    color: $color-white;
+    height: 10rem;
+    position: relative;
+
+    &-text {
+      font-size: $default-font-size;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+  }
 }
