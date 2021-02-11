@@ -1,5 +1,7 @@
 import Head from "next/head";
 
+import MenuIcon from "@material-ui/icons/Menu";
+
 const menuContent = [
   "Read Blog",
   "Writers collection",
@@ -31,7 +33,7 @@ const bookSeries = [
   "Masud Rana Series",
 ];
 
-function Navbar() {
+function Nav() {
   return (
     <div>
       <Head>
@@ -39,20 +41,25 @@ function Navbar() {
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
           integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+          crossOrigin="anonymous"
+        ></script>
       </Head>
       {/* main header */}
       <div className="collapse" id="navbarToggleExternalContent">
         <div className="nav-toggle">
           <ul className="nav-toggle__list">
-            <li className="nav-toggle__item">
-              <a href="#" className="nav-toggle__link">
-                {menuContent.map((menu) => {
-                  menu;
-                })}
-              </a>
-            </li>
+            {menuContent.map((menu, index) => (
+              <li className="nav-toggle__item" key={index}>
+                <a href="#" className="nav-toggle__link">
+                  {menu}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
@@ -100,8 +107,8 @@ function Navbar() {
             <div className="drop-list">
               <button>Writers</button>
               <ul>
-                {writers.map((writer) => (
-                  <li>
+                {writers.map((writer, index) => (
+                  <li key={index}>
                     <a href="#">{writer}</a>
                   </li>
                 ))}
@@ -110,8 +117,8 @@ function Navbar() {
             <div className="drop-list">
               <button>Series</button>
               <ul>
-                {bookSeries.map((series) => (
-                  <li>
+                {bookSeries.map((series, index) => (
+                  <li key={index}>
                     <a href="#">{series}</a>
                   </li>
                 ))}
@@ -136,4 +143,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default Nav;
