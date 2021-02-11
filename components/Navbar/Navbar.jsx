@@ -1,15 +1,40 @@
 import Head from "next/head";
 
+const menuContent = [
+  "Read Blog",
+  "Writers collection",
+  "Series collection",
+  "Become a Writer",
+  "Terms of Use",
+  "Contact Us",
+  "Privacy Policy",
+];
+
+const writers = [
+  "Humayun Ahmed",
+  "Jafar Iqbal",
+  "Sadat Hossain",
+  "Anisul Haq",
+  "Kazi Nazrul Islam",
+  "Rabindranath Tagore",
+  "Bibhutibhushan Bandopaddhay",
+  "Manik Bando padhyay",
+  "Saratchandra Chattopadhyay",
+  "Michael Madhusudan Dutta",
+];
+
+const bookSeries = [
+  "Himu Series",
+  "Misir Ali Series",
+  "Feluda Series",
+  "Tin Goyenda Series",
+  "Masud Rana Series",
+];
+
 function Navbar() {
   return (
     <div>
       <Head>
-        <link
-          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
-          crossorigin="anonymous"
-        />
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
@@ -23,37 +48,9 @@ function Navbar() {
           <ul className="nav-toggle__list">
             <li className="nav-toggle__item">
               <a href="#" className="nav-toggle__link">
-                Read Blog
-              </a>
-            </li>
-            <li className="nav-toggle__item">
-              <a href="#" className="nav-toggle__link">
-                Writers collection
-              </a>
-            </li>
-            <li className="nav-toggle__item">
-              <a href="#" className="nav-toggle__link">
-                Series collection
-              </a>
-            </li>
-            <li className="nav-toggle__item">
-              <a href="#" className="nav-toggle__link">
-                Become a Writer
-              </a>
-            </li>
-            <li className="nav-toggle__item">
-              <a href="#" className="nav-toggle__link">
-                Terms of Use
-              </a>
-            </li>
-            <li className="nav-toggle__item">
-              <a href="#" className="nav-toggle__link">
-                Contact Us
-              </a>
-            </li>
-            <li className="nav-toggle__item">
-              <a href="#" className="nav-toggle__link">
-                Privacy Policy
+                {menuContent.map((menu) => {
+                  menu;
+                })}
               </a>
             </li>
           </ul>
@@ -103,59 +100,21 @@ function Navbar() {
             <div className="drop-list">
               <button>Writers</button>
               <ul>
-                <li>
-                  <a href="#">Humayun Ahmed</a>
-                </li>
-                <li>
-                  <a href="#">Jafar Iqbal</a>
-                </li>
-                <li>
-                  <a href="#">Sadat Hossain</a>
-                </li>
-                <li>
-                  <a href="#">Anisul Haq</a>
-                </li>
-                <li>
-                  <a href="#">Kazi Nazrul Islam</a>
-                </li>
-                <li>
-                  <a href="#">Rabindranath Tagore</a>
-                </li>
-                <li>
-                  <a href="#">Bibhutibhushan Bandopadhya</a>
-                </li>
-                <li>
-                  <a href="#">Manik Bando padhyay</a>
-                </li>
-                <li>
-                  <a href="#">Saratchandra Chattopadhyay</a>
-                </li>
-                <li>
-                  <a href="#">Michael Madhusudan Dutta</a>
-                </li>
+                {writers.map((writer) => (
+                  <li>
+                    <a href="#">{writer}</a>
+                  </li>
+                ))}
               </ul>
             </div>
             <div className="drop-list">
               <button>Series</button>
               <ul>
-                <li>
-                  <a href="#">Himu Series</a>
-                </li>
-                <li>
-                  <a href="#">Misir Ali Series</a>
-                </li>
-                <li>
-                  <a href="#">Shuvro Series</a>
-                </li>
-                <li>
-                  <a href="#">Feluda Series</a>
-                </li>
-                <li>
-                  <a href="#">Tin Goyenda Series</a>
-                </li>
-                <li>
-                  <a href="#">Masud Rana Series</a>
-                </li>
+                {bookSeries.map((series) => (
+                  <li>
+                    <a href="#">{series}</a>
+                  </li>
+                ))}
               </ul>
             </div>
             <div className="drop-list">
