@@ -1,0 +1,279 @@
+$color-primary: #17202a;
+$color-primary-dark: #001d3f;
+$color-primary-light: #101d2c;
+
+$color-white: #ffff;
+
+$color-grey: #ecedee;
+$color-grey-2: #858688;
+$color-grey-3: #4f5050;
+$color-grey-light: #b6b6b6;
+
+$color-black: black;
+
+$color-main: #f1f8ff;
+
+$color-green: rgba(52, 173, 52, 0.863);
+$color-green-dark: rgba(26, 97, 26, 0.753);
+
+$default-font-size: 1.6rem;
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) {
+      //600px
+      @content;
+    }
+  }
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em) {
+      //900px
+      @content;
+    }
+  }
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em) {
+      //1200px
+      @content;
+    }
+  }
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) {
+      //1800px
+      @content;
+    }
+  }
+}
+
+*,
+*::after,
+**::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; //1rem is 16px
+
+  @include respond(tab-land) {
+    font-size: 57%;
+  }
+  @include respond(tab-port) {
+    font-size: 54%;
+  }
+  @include respond(phone) {
+    font-size: 50%;
+  }
+}
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Comfortaa", cursive, sans-serif;
+  background-color: $color-grey;
+}
+
+main {
+  background-color: $color-white;
+  // height: 80vh;
+  box-shadow: 0px 2.5rem 1.5rem 0.9rem rgba(133, 134, 136, 0.6);
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+
+  @include respond(tab-land) {
+    display: none;
+  }
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $color-primary;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $color-grey-3;
+}
+
+.container {
+  padding: 0 !important;
+}
+
+.navbar-toggler {
+  border: none !important;
+  font-size: 2rem;
+
+  &:focus {
+    box-shadow: none !important;
+  }
+}
+
+//header
+.header {
+  &__search-box {
+    font-size: $default-font-size;
+    display: flex;
+    // margin-right: 1.7rem;
+  }
+
+  &__search {
+    background-color: $color-grey;
+    border: 1px solid $color-grey;
+    padding: 1.2rem;
+    width: 36rem;
+    margin-right: 1rem;
+    border-radius: 2rem;
+
+    &:focus {
+      outline: none;
+    }
+
+    @include respond(tab-land) {
+      display: none;
+    }
+  }
+}
+
+// toggle header
+.nav-toggle {
+  background-color: $color-primary;
+  color: $color-white;
+  padding: 8rem;
+
+  &__list {
+    list-style: none;
+    font-size: $default-font-size;
+    text-align: center;
+  }
+
+  &__item {
+    margin-bottom: 1rem;
+  }
+
+  &__link {
+    &,
+    &:link,
+    &:visited,
+    &:focus {
+      text-decoration: none;
+      color: $color-white;
+    }
+
+    &:hover {
+      color: $color-grey;
+    }
+  }
+}
+
+// Dropdown
+.secondary {
+  background-color: $color-white;
+  border-bottom: 1px solid rgba($color-grey-3, 0.3);
+  padding: 0.5rem;
+
+  @include respond(tab-land) {
+    display: none;
+  }
+}
+
+.dropdown {
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: $default-font-size;
+}
+
+.drop-list {
+  position: relative;
+  text-decoration: none;
+}
+
+.drop-list ul {
+  padding: 0;
+  margin-top: auto;
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  width: 264px;
+  height: auto;
+  background: white;
+  left: 0px;
+  list-style: none;
+  border-radius: 5px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: all 0.4s ease;
+}
+.drop-list li {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.drop-list li:hover {
+  background-color: rgba($color-primary, 0.4);
+  left: 0;
+}
+
+.drop-list a {
+  color: $color-grey-3;
+  text-decoration: none;
+}
+
+.dropdown button {
+  background-color: $color-primary;
+  color: $color-grey;
+  font-size: 1.3rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 2rem 2rem;
+  border-radius: 1rem;
+  border: 1px solid $color-grey;
+  outline: none;
+  text-decoration: none;
+
+  cursor: pointer;
+  text-decoration: none;
+
+  &:focus {
+    background-color: white;
+    color: $color-black;
+    border: 1px solid $color-grey;
+  }
+  &:hover {
+    background-color: white;
+    color: $color-black;
+    border: 1px solid $color-grey;
+  }
+}
+
+.drop-list button:focus + ul {
+  border: none;
+
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0px);
+}
