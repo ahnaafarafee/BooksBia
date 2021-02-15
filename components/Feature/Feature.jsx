@@ -1,31 +1,31 @@
 function Feature() {
   return (
     <>
-      <section class="feature">
-        <div class="">
-          <div class="row">
-            <div class="col-lg-8">
-              <div class="feature__box">
-                <h3 class="feature__box--header">Are You A Writer?</h3>
-                <h3 class="feature__box--header">
+      <section className="feature">
+        <div>
+          <div className="row">
+            <div className="col-lg-8">
+              <div className="feature__box">
+                <h3 className="feature__box--header">Are You A Writer?</h3>
+                <h3 className="feature__box--header">
                   Or Do You Want To Be A Writer?
                 </h3>
-                <div class="feature__button">
-                  <a href="#" class="cta cta-feature">
+                <div className="feature__button">
+                  <a href="#" className="cta cta-feature">
                     Write Blog
                   </a>
-                  <a href="#" class="cta cta-feature">
+                  <a href="#" className="cta cta-feature">
                     Read Blog
                   </a>
                 </div>
               </div>
             </div>
-            <div class="col-lg-4">
-              <div class="feature__svg--box">
+            <div className="col-lg-4">
+              <div className="feature__svg--box">
                 <img
-                  src="./assets/feature-book-svg.svg"
+                  src="./svg/feature-book-svg.svg"
                   alt="feature svg"
-                  class="feature__svg"
+                  className="feature__svg"
                 />
               </div>
             </div>

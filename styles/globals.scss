@@ -350,7 +350,7 @@ main {
   background-color: $color-grey;
 
   &__box {
-    background-image: url(/assets/pen-and-paper.jpg);
+    background-image: url(/asset/pen-and-paper.jpg);
     background-size: cover;
     background-position: center; // to center the image
     align-items: center;
@@ -393,6 +393,156 @@ main {
         display: none;
       }
     }
+  }
+}
+
+// Content section
+
+.content {
+  margin: 4rem 0 4rem 0;
+
+  &__box {
+    background-color: $color-white;
+    margin-top: 3rem;
+  }
+  &__main-heading {
+    font-size: $default-font-size;
+    font-weight: 900;
+    color: $color-grey-2;
+    padding-left: 1.2rem;
+    margin-left: 1.2rem;
+    margin-bottom: 1.5rem;
+    border-left: 3px solid $color-primary;
+  }
+
+  &__row {
+    padding: 2rem 0 0 2rem;
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+  }
+
+  &__row--books {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.6s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__poster {
+    background-size: cover;
+    background-position: center;
+    height: 17rem;
+  }
+
+  &__heading--sub {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: $color-grey-3;
+  }
+
+  &__book-link {
+    text-decoration: none;
+  }
+}
+
+.side-content {
+  background-color: $color-grey;
+  margin-top: 1rem;
+  border-top-left-radius: 3.5rem;
+  border-top-right-radius: 3.5rem;
+  display: flex;
+  flex-direction: column;
+
+  @include respond(tab-land) {
+    margin-top: 3rem;
+    width: 100%;
+  }
+
+  &__heading {
+    position: absolute;
+    top: 2.5rem;
+    left: 35%;
+    transform: translate(-0.9%, -38%);
+    text-align: center;
+    font-size: $default-font-size;
+    color: $color-grey-light;
+    font-weight: 400;
+
+    @include respond(tab-land) {
+      left: 40%;
+    }
+  }
+
+  &__head {
+    position: relative;
+  }
+
+  &__v-line {
+    border-top: 2px solid $color-grey-light;
+    width: 11%;
+    height: 3rem;
+    z-index: 1;
+
+    position: absolute;
+    top: 2rem;
+    left: 43%;
+    transform: translate(-0.9%, -38%);
+    text-align: center;
+
+    &-lg {
+      position: absolute;
+      border-top: 2px solid $color-grey-light;
+      width: 82%;
+      height: 3px;
+      z-index: 1;
+
+      position: absolute;
+      top: 4.5rem;
+      left: 12%;
+      transform: translate(-2.9%, -15%);
+      text-align: center;
+
+      margin-top: 6px;
+    }
+  }
+
+  &__row {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    // align-items: flex-start;
+    margin-top: 7rem;
+    position: relative;
+  }
+
+  &__row--side {
+    padding: 1.5rem;
+    cursor: pointer;
+  }
+
+  &--floating {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__heading--sub {
+    font-size: $default-font-size;
+    font-weight: 900;
+    color: $color-grey-3;
+  }
+
+  &__heading-side {
+    // position: absolute;
+    // margin-top: 1rem;
+    margin-left: 1.2rem;
   }
 }
 
