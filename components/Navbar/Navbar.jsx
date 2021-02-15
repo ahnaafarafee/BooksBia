@@ -98,43 +98,69 @@ function Nav() {
         <div className="container">
           <div className="dropdown">
             <div className="drop-list">
-              <button>Blog</button>
+              <button className="cta">Blog</button>
             </div>
             <div className="drop-list">
-              <button>Trending</button>
+              <button className="cta">Trending</button>
             </div>
 
             <div className="drop-list">
-              <button>Writers</button>
-              <ul>
+              <button
+                className="dropdown-toggle cta"
+                type="button"
+                id="dropdownMenuButton1"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Writers
+              </button>
+              <ul
+                className="dropdown-menu"
+                aria-labelledby="dropdownMenuButton1"
+              >
                 {writers.map((writer, index) => (
                   <li key={index}>
-                    <a href="#">{writer}</a>
+                    <a className="dropdown-item" href="#">
+                      {writer}
+                    </a>
                   </li>
                 ))}
               </ul>
             </div>
             <div className="drop-list">
-              <button>Series</button>
-              <ul>
+              <button
+                className="dropdown-toggle cta"
+                type="button"
+                id="dropdownMenuButton1"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Series
+              </button>
+              <ul
+                className="dropdown-menu"
+                aria-labelledby="dropdownMenuButton1"
+              >
                 {bookSeries.map((series, index) => (
                   <li key={index}>
-                    <a href="#">{series}</a>
+                    <a className="dropdown-item" href="#">
+                      {series}
+                    </a>
                   </li>
                 ))}
               </ul>
             </div>
             <div className="drop-list">
-              <button>Poems</button>
+              <button className="cta">Poems</button>
             </div>
             <div className="drop-list">
-              <button>Horror</button>
+              <button className="cta">Horror</button>
             </div>
             <div className="drop-list">
-              <button>Anubaad</button>
+              <button className="cta">Anubaad</button>
             </div>
             <div className="drop-list">
-              <button>Detective Novels</button>
+              <button className="cta">Detective Novels</button>
             </div>
           </div>
         </div>
