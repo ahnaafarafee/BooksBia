@@ -1,7 +1,7 @@
 import Head from "next/head";
+
 import Feature from "../components/Feature/feature";
 import MainContent from "../components/MainContent/MainContent";
-// import styles from "../styles/Home.module.scss";
 
 export default function Home() {
   return (
