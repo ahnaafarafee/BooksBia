@@ -69,6 +69,12 @@ html {
   }
 }
 
+a {
+  &:link {
+    text-decoration: none;
+  }
+}
+
 body {
   margin: 0;
   box-sizing: border-box;
