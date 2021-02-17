@@ -1,6 +1,9 @@
 import Link from "next/link";
 
-function SideContentBooks({ imageUrl, name, author }) {
+function SideContentBooks({ imageUrl, name, author, added }) {
+  const dateCreated = added.toDate();
+  const date = dateCreated.toDateString();
+
   return (
     <div>
       <Link href="/">
@@ -10,9 +13,11 @@ function SideContentBooks({ imageUrl, name, author }) {
             <span className="side-content__heading-side">
               <h4 className="side-content__heading--sub">{name}</h4>
               <h4 className="side-content__heading--sub">{author}</h4>
-              {/* <h3 className="side-content__heading--sub">File Size: 1.2 Mb</h3>
-            <h3 className="side-content__heading--sub">Uploaded: 24.01.20</h3>
-            <h3 className="side-content__heading--sub">Rating: ⭐⭐⭐</h3> */}
+              {/* <h3 className="side-content__heading--sub">File Size: 1.2 Mb</h3> */}
+              <h3 className="side-content__heading--sub">
+                uploaded: <span>{date}</span>
+              </h3>
+              {/* <h3 className="side-content__heading--sub">Rating: ⭐⭐⭐</h3> */}
             </span>
           </div>
         </a>

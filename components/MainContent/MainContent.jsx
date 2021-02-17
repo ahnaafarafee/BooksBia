@@ -7,13 +7,19 @@ import firebase from "../../services/firebase";
 
 function MainContent() {
   const [books, setBooks] = useState([]);
+  const [booksNewAdded, setBooksNewAdded] = useState([]);
+  const db = firebase.firestore();
 
   useEffect(() => {
-    const db = firebase.firestore();
-
     db.collection("books").onSnapshot((snapshot) =>
       setBooks(snapshot.docs.map((doc) => doc.data()))
     );
+
+    db.collection("books")
+      .orderBy("added", "desc")
+      .onSnapshot((snapshot) =>
+        setBooksNewAdded(snapshot.docs.map((doc) => doc.data()))
+      );
   }, []);
 
   return (
@@ -46,12 +52,13 @@ function MainContent() {
                 <div className="side-content__main">
                   <div className="side-content__row">
                     <div className="side-content__row--side">
-                      {books.map((doc) => (
+                      {booksNewAdded.map((doc) => (
                         <SideContentBooks
                           key={doc.id}
                           imageUrl={doc.imageUrl}
                           name={doc.name}
                           author={doc.author}
+                          added={doc.added}
                         />
                       ))}
                     </div>
