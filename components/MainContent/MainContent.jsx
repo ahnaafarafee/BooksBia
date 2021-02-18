@@ -46,6 +46,23 @@ function MainContent() {
                   })}
                 </div>
               </div>
+              <div className="content__box">
+                <h2 className="content__main-heading">Humu</h2>
+                <div className="content__row">
+                  {books.map((doc, index) => {
+                    if (doc.author === "Humayun Ahmed") {
+                      return (
+                        <MainContentBooks
+                          key={doc.id}
+                          imageUrl={doc.imageUrl}
+                          name={doc.name}
+                          author={doc.author}
+                        />
+                      );
+                    }
+                  })}
+                </div>
+              </div>
             </div>
             <div className="col-lg-4">
               <div className="side-content">
@@ -56,17 +73,19 @@ function MainContent() {
                 </div>
                 <div className="side-content__main">
                   <div className="side-content__row">
-                    <div className="side-content__row--side">
-                      {booksNewAdded.map((doc) => (
-                        <SideContentBooks
-                          key={doc.id}
-                          imageUrl={doc.imageUrl}
-                          name={doc.name}
-                          author={doc.author}
-                          added={doc.added}
-                        />
-                      ))}
-                    </div>
+                    {booksNewAdded.map((doc, index) => {
+                      if (index <= 20) {
+                        return (
+                          <SideContentBooks
+                            key={doc.id}
+                            imageUrl={doc.imageUrl}
+                            name={doc.name}
+                            author={doc.author}
+                            added={doc.added}
+                          />
+                        );
+                      }
+                    })}
                   </div>
                 </div>
               </div>
