@@ -324,10 +324,7 @@ main {
   }
 
   &__svg {
-    padding: 3rem;
-
     @include respond(tab-land) {
-      padding: 0;
       width: 35rem;
     }
 
