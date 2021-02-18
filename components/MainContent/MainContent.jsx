@@ -6,9 +6,10 @@ import SideContentBooks from "./sideContentBooks";
 import firebase from "../../services/firebase";
 
 function MainContent() {
+  const db = firebase.firestore();
+
   const [books, setBooks] = useState([]);
   const [booksNewAdded, setBooksNewAdded] = useState([]);
-  const db = firebase.firestore();
 
   useEffect(() => {
     db.collection("books").onSnapshot((snapshot) =>
@@ -31,14 +32,18 @@ function MainContent() {
               <div className="content__box">
                 <h2 className="content__main-heading">Trending</h2>
                 <div className="content__row">
-                  {books.map((doc) => (
-                    <MainContentBooks
-                      key={doc.id}
-                      imageUrl={doc.imageUrl}
-                      name={doc.name}
-                      author={doc.author}
-                    />
-                  ))}
+                  {books.map((doc, index) => {
+                    if (index <= 10) {
+                      return (
+                        <MainContentBooks
+                          key={doc.id}
+                          imageUrl={doc.imageUrl}
+                          name={doc.name}
+                          author={doc.author}
+                        />
+                      );
+                    }
+                  })}
                 </div>
               </div>
             </div>
