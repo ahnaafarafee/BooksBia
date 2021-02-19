@@ -82,6 +82,13 @@ body {
   background-color: $color-grey;
 }
 
+.main-layout {
+}
+
+.logo {
+  cursor: pointer !important;
+}
+
 main {
   background-color: $color-white;
   // height: 80vh;
@@ -491,6 +498,7 @@ main {
 .footer {
   background-color: rgba($color-primary-light, 0.83);
   color: $color-white;
+  margin-top: -40px;
 
   &__logo {
     &-box {

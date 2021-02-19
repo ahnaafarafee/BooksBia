@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import MenuIcon from "@material-ui/icons/Menu";
+import Link from "next/link";
 
 const menuContent = [
   "Read Blog",
@@ -76,9 +76,15 @@ function Nav() {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <a className="navbar-brand" href="#">
-            <img src="/logo/logo.svg" alt="Booksbia" width="120" height="120" />
-          </a>
+          <Link href="/" className="navbar-brand">
+            <img
+              src="/logo/logo.svg"
+              className="logo"
+              alt="Booksbia"
+              width="120"
+              height="120"
+            />
+          </Link>
           <form className="d-flex">
             <div className="header__search-box">
               <input
