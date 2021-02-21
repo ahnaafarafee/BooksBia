@@ -1,4 +1,14 @@
+import { useEffect } from "react";
+
 function Feature() {
+  const undraggable = () => {
+    document.getElementById("img").draggable = false;
+  };
+
+  useEffect(() => {
+    undraggable();
+  }, []);
+
   return (
     <>
       <section className="feature">
@@ -24,6 +34,7 @@ function Feature() {
               <div className="feature__svg--box">
                 <img
                   src="./svg/feature-book-svg.svg"
+                  id="img"
                   alt="feature svg"
                   className="feature__svg"
                 />
