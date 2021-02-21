@@ -8,7 +8,7 @@ function NotFoundPage() {
         <Link href="/" className="error-page__svg">
           <img
             className="error-page__svg--img"
-            src="./svg/feature-book-svg.svg"
+            src="./svg/error-404.svg"
             alt="feature svg"
           />
         </Link>
