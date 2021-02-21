@@ -3,10 +3,11 @@ import Link from "next/link";
 function SideContentBooks({ imageUrl, name, author, added }) {
   const dateCreated = added.toDate();
   const date = dateCreated.toDateString();
+  const slug = name.replace(/\s/g, "-").toLowerCase();
 
   return (
     <div>
-      <Link href="/">
+      <Link href={`books/${slug}`}>
         <div className="side-content__row--side">
           <div className="content__book-link">
             <div className="side-content--floating">

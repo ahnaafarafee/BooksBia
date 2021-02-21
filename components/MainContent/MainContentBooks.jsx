@@ -1,10 +1,11 @@
 import Link from "next/link";
 
 function MainContentBooks({ imageUrl, name, author }) {
+  const slug = name.replace(/\s/g, "-").toLowerCase();
   return (
     <>
       <div className="content__row--books">
-        <Link href="/">
+        <Link href={`books/${slug}`}>
           <div className="content__book-link">
             <img src={imageUrl} alt={name} className="content__poster" />
             <h4 className="content__heading--sub">{name}</h4>
