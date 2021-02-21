@@ -601,3 +601,24 @@ main {
     }
   }
 }
+
+.error-page {
+  background: linear-gradient(to left bottom, $color-grey, $color-grey-light);
+  display: flex;
+  flex-direction: column;
+
+  &__heading {
+    font-size: 3rem;
+    color: $color-black;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  &__svg{
+    &--img{
+      width: 100%;
+      // height: 6rem;
+    }
+  }
+}
