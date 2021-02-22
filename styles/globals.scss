@@ -615,10 +615,74 @@ main {
     margin-bottom: 4rem;
   }
 
-  &__svg{
-    &--img{
+  &__svg {
+    &--img {
       width: 100%;
       // height: 6rem;
+    }
+  }
+}
+
+// content page styles
+.preview {
+  margin-top: 1rem;
+  border: 1px solid $color-grey;
+  background-color: $color-white;
+  display: flex;
+  font-size: $default-font-size;
+
+  &__img {
+    background-size: cover;
+    background-position: center;
+    width: 17rem;
+    flex: 0;
+
+    &--box {
+      margin: 2rem;
+      border: 1px solid $color-grey;
+    }
+  }
+
+  &__details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 5rem;
+    float: right;
+    align-items: center;
+    font-size: 2rem;
+  }
+}
+
+.details {
+  user-select: none;
+  font-size: $default-font-size;
+  padding: 2rem;
+
+  &__heading {
+    color: $color-grey-2;
+    font-weight: 400;
+    margin: 2rem 0 2rem 0;
+
+    &:hover {
+      color: $color-grey-3;
+    }
+  }
+}
+
+.button {
+  font-size: $default-font-size;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 3rem;
+
+  &-download {
+    color: $color-green;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+      color: $color-green-dark;
     }
   }
 }
