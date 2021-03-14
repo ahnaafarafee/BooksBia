@@ -17,15 +17,17 @@ function MainContent() {
         snapshot.docs
           .map((a) => ({ sort: Math.random(), value: a }))
           .sort((a, b) => a.sort - b.sort)
-          .map((a) => a.value.data())
+          .map((a) => a.value)
+          .map((doc) => ({ id: doc.id, book: doc.data() }))
       )
     );
 
     db.collection("books")
-      .orderBy("added", "desc")
-      .onSnapshot((snapshot) =>
-        setBooksNewAdded(snapshot.docs.map((doc) => doc.data()))
-      );
+    .onSnapshot((snapshot) =>
+      setBooksNewAdded(
+        snapshot.docs.map((doc) => ({ id: doc.id, book: doc.data() }))
+      )
+    );
   }, []);
 
   return (
@@ -37,14 +39,15 @@ function MainContent() {
               <div className="content__box">
                 <h2 className="content__main-heading">Trending</h2>
                 <div className="content__row">
-                  {books.map((doc, index) => {
+                  {books.map(({ book, id }, index) => {
                     if (index <= 10) {
                       return (
                         <MainContentBooks
-                          key={doc.id}
-                          imageUrl={doc.imageUrl}
-                          name={doc.name}
-                          author={doc.author}
+                          key={id}
+                          imageUrl={book.imageUrl}
+                          name={book.name}
+                          author={book.author}
+                          slug={book.slug}
                         />
                       );
                     }
@@ -61,15 +64,15 @@ function MainContent() {
                 </div>
                 <div className="side-content__main">
                   <div className="side-content__row">
-                    {booksNewAdded.map((doc, index) => {
+                    {booksNewAdded.map(({ id, book }, index) => {
                       if (index <= 20) {
                         return (
                           <SideContentBooks
-                            key={doc.id}
-                            imageUrl={doc.imageUrl}
-                            name={doc.name}
-                            author={doc.author}
-                            added={doc.added}
+                            key={id}
+                            imageUrl={book.imageUrl}
+                            name={book.name}
+                            author={book.author}
+                            slug={book.slug}
                           />
                         );
                       }
