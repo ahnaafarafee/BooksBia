@@ -1,4 +1,3 @@
-
 import firebase from "../../services/firebase";
 
 export const getStaticProps = async (context) => {
@@ -36,10 +35,726 @@ export async function getStaticPaths() {
 }
 
 export default function bookDetails(props) {
-  console.log(props);
+  const { book } = props;
   return (
-    <div>
-      <h1>Book Details Page!!!</h1>
-    </div>
+    <main className="container">
+      <div className="row">
+        <div className="col-lg-8">
+          <div className="preview">
+            <div className="preview__img--box">
+              <img
+                src={book.imageUrl}
+                alt="Preview Book"
+                className="preview__img"
+              />
+            </div>
+            <div className="preview__details">
+              <span className="preview__heading">{book.name}</span>
+              <span className="preview__heading">{book.author}</span>
+              <span className="preview__heading">File Size: 4 MB</span>
+              <span className="preview__heading">Last Update: 18.11.2019</span>
+              <span className="preview__heading">Rating: ⭐⭐⭐⭐⭐</span>
+            </div>
+          </div>
+          <div className="details">
+            <div className="details__book">
+              <h2 className="details__heading">
+                Read the book description before downloading
+              </h2>
+              <p className="details__main">{book.bookDetails}</p>
+            </div>
+            <div className="details__author">
+              <h2 className="details__heading">
+                Read the book description before downloading
+              </h2>
+              <p className="details__main">{book.bookDetails}</p>
+            </div>
+          </div>
+          <div className="button">
+            <a href={book.link} target="_blank" className="button-download">
+              Read Online
+            </a>
+            <span>or</span>
+            <a
+              href={book.link}
+              download={`${book.name} by ${book.author} BooksBia Production`}
+              className="button-download"
+            >
+              Download
+            </a>
+          </div>
+          <section className="feature">
+            <div className="feature__box">
+              <h3 className="feature__box--header">Are You A Writer?</h3>
+              <h3 className="feature__box--header">
+                Or Do You Want To Be A Writer?
+              </h3>
+              <div className="feature__button">
+                <a href="#" className="cta cta-feature">
+                  Write Blog
+                </a>
+                <a href="#" className="cta cta-feature">
+                  Read Blog
+                </a>
+              </div>
+            </div>
+          </section>
+          <div className="content__box">
+            <h2 className="content__main-heading">
+              More Books From Humayun Ahmed
+            </h2>
+            <div className="content__row">
+              <div className="content__row--books">
+                <a href="#" className="content__book-link">
+                  <img
+                    src="./assets/books/book-1.jpg"
+                    alt="#"
+                    className="content__poster"
+                  />
+                  <h4 className="content__heading--sub">
+                    Jochna O Jononir Golpo
+                  </h4>
+                  <h4 className="content__heading--sub">Humayun Ahmed</h4>
+                </a>
+              </div>
+              <div className="content__row--books">
+                <a href="#" className="content__book-link">
+                  <img
+                    src="./assets/books/book-2.jpg"
+                    alt="#"
+                    className="content__poster"
+                  />
+                  <h4 className="content__heading--sub">Opekkha</h4>
+                  <h4 className="content__heading--sub">Humayun Ahmed</h4>
+                </a>
+              </div>
+              <div className="content__row--books">
+                <a href="#" className="content__book-link">
+                  <img
+                    src="./assets/books/book-3.gif"
+                    alt="#"
+                    className="content__poster"
+                  />
+                  <h4 className="content__heading--sub">Amar Bondhu Rashed</h4>
+                  <h4 className="content__heading--sub">Jafar Iqbal</h4>
+                </a>
+              </div>
+              <div className="content__row--books">
+                <a href="#" className="content__book-link">
+                  <img
+                    src="./assets/books/book-4.gif"
+                    alt="#"
+                    className="content__poster"
+                  />
+                  <h4 className="content__heading--sub">Shohoj Calculus</h4>
+                  <h4 className="content__heading--sub">Jafar Iqbal</h4>
+                </a>
+              </div>
+              <div className="content__row--books">
+                <a href="#" className="content__book-link">
+                  <img
+                    src="./assets/books/book-5.jpg"
+                    alt="#"
+                    className="content__poster"
+                  />
+                  <h4 className="content__heading--sub">Shobuj Dwiper Raja</h4>
+                  <h4 className="content__heading--sub">Sunil Gongopaddhay</h4>
+                </a>
+              </div>
+              <div className="content__row--books">
+                <a href="#" className="content__book-link">
+                  <img
+                    src="./assets/books/book-6.gif"
+                    alt="#"
+                    className="content__poster"
+                  />
+                  <h4 className="content__heading--sub">
+                    Agneyhogirir Peter Moddhe
+                  </h4>
+                  <h4 className="content__heading--sub">Sunil Gongopaddhayd</h4>
+                </a>
+              </div>
+              <div className="content__row--books">
+                <a href="#" className="content__book-link">
+                  <img
+                    src="./assets/books/book-7.jpg"
+                    alt="#"
+                    className="content__poster"
+                  />
+                  <h4 className="content__heading--sub">Nirbashon</h4>
+                  <h4 className="content__heading--sub">Sadat Hossain</h4>
+                </a>
+              </div>
+              <div className="content__row--books">
+                <a href="#" className="content__book-link">
+                  <img
+                    src="./assets/books/book-8.jpg"
+                    alt="#"
+                    className="content__poster"
+                  />
+                  <h4 className="content__heading--sub">Choddobesh</h4>
+                  <h4 className="content__heading--sub">Sadat Hossain</h4>
+                </a>
+              </div>
+              <div className="content__row--books">
+                <a href="#" className="content__book-link">
+                  <img
+                    src="./assets/books/book-9.jpg"
+                    alt="#"
+                    className="content__poster"
+                  />
+                  <h4 className="content__heading--sub">
+                    Sreshtho Robindro Sanget
+                  </h4>
+                  <h4 className="content__heading--sub">Rabindranath Tagore</h4>
+                </a>
+              </div>
+              <div className="content__row--books">
+                <a href="#" className="content__book-link">
+                  <img
+                    src="./assets/books/book-10.jpg"
+                    alt="#"
+                    className="content__poster"
+                  />
+                  <h4 className="content__heading--sub">Sesher Kobita</h4>
+                  <h4 className="content__heading--sub">Rabindranath Tagore</h4>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="content__box">
+            <h2 className="content__main-heading">People Also Downloads</h2>
+            <div className="content__row">
+              <div className="content__row--books">
+                <a href="#" className="content__book-link">
+                  <img
+                    src="./assets/books/book-1.jpg"
+                    alt="#"
+                    className="content__poster"
+                  />
+                  <h4 className="content__heading--sub">
+                    Jochna O Jononir Golpo
+                  </h4>
+                  <h4 className="content__heading--sub">Humayun Ahmed</h4>
+                </a>
+              </div>
+              <div className="content__row--books">
+                <a href="#" className="content__book-link">
+                  <img
+                    src="./assets/books/book-2.jpg"
+                    alt="#"
+                    className="content__poster"
+                  />
+                  <h4 className="content__heading--sub">Opekkha</h4>
+                  <h4 className="content__heading--sub">Humayun Ahmed</h4>
+                </a>
+              </div>
+              <div className="content__row--books">
+                <a href="#" className="content__book-link">
+                  <img
+                    src="./assets/books/book-3.gif"
+                    alt="#"
+                    className="content__poster"
+                  />
+                  <h4 className="content__heading--sub">Amar Bondhu Rashed</h4>
+                  <h4 className="content__heading--sub">Jafar Iqbal</h4>
+                </a>
+              </div>
+              <div className="content__row--books">
+                <a href="#" className="content__book-link">
+                  <img
+                    src="./assets/books/book-4.gif"
+                    alt="#"
+                    className="content__poster"
+                  />
+                  <h4 className="content__heading--sub">Shohoj Calculus</h4>
+                  <h4 className="content__heading--sub">Jafar Iqbal</h4>
+                </a>
+              </div>
+              <div className="content__row--books">
+                <a href="#" className="content__book-link">
+                  <img
+                    src="./assets/books/book-5.jpg"
+                    alt="#"
+                    className="content__poster"
+                  />
+                  <h4 className="content__heading--sub">Shobuj Dwiper Raja</h4>
+                  <h4 className="content__heading--sub">Sunil Gongopaddhay</h4>
+                </a>
+              </div>
+              <div className="content__row--books">
+                <a href="#" className="content__book-link">
+                  <img
+                    src="./assets/books/book-6.gif"
+                    alt="#"
+                    className="content__poster"
+                  />
+                  <h4 className="content__heading--sub">
+                    Agneyhogirir Peter Moddhe
+                  </h4>
+                  <h4 className="content__heading--sub">Sunil Gongopaddhayd</h4>
+                </a>
+              </div>
+              <div className="content__row--books">
+                <a href="#" className="content__book-link">
+                  <img
+                    src="./assets/books/book-7.jpg"
+                    alt="#"
+                    className="content__poster"
+                  />
+                  <h4 className="content__heading--sub">Nirbashon</h4>
+                  <h4 className="content__heading--sub">Sadat Hossain</h4>
+                </a>
+              </div>
+              <div className="content__row--books">
+                <a href="#" className="content__book-link">
+                  <img
+                    src="./assets/books/book-8.jpg"
+                    alt="#"
+                    className="content__poster"
+                  />
+                  <h4 className="content__heading--sub">Choddobesh</h4>
+                  <h4 className="content__heading--sub">Sadat Hossain</h4>
+                </a>
+              </div>
+              <div className="content__row--books">
+                <a href="#" className="content__book-link">
+                  <img
+                    src="./assets/books/book-9.jpg"
+                    alt="#"
+                    className="content__poster"
+                  />
+                  <h4 className="content__heading--sub">
+                    Sreshtho Robindro Sanget
+                  </h4>
+                  <h4 className="content__heading--sub">Rabindranath Tagore</h4>
+                </a>
+              </div>
+              <div className="content__row--books">
+                <a href="#" className="content__book-link">
+                  <img
+                    src="./assets/books/book-10.jpg"
+                    alt="#"
+                    className="content__poster"
+                  />
+                  <h4 className="content__heading--sub">Sesher Kobita</h4>
+                  <h4 className="content__heading--sub">Rabindranath Tagore</h4>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="content__box">
+            <h2 className="content__main-heading">Popular Pics</h2>
+            <div className="content__row">
+              <div className="content__row--books">
+                <a href="#" className="content__book-link">
+                  <img
+                    src="./assets/books/book-1.jpg"
+                    alt="#"
+                    className="content__poster"
+                  />
+                  <h4 className="content__heading--sub">
+                    Jochna O Jononir Golpo
+                  </h4>
+                  <h4 className="content__heading--sub">Humayun Ahmed</h4>
+                </a>
+              </div>
+              <div className="content__row--books">
+                <a href="#" className="content__book-link">
+                  <img
+                    src="./assets/books/book-2.jpg"
+                    alt="#"
+                    className="content__poster"
+                  />
+                  <h4 className="content__heading--sub">Opekkha</h4>
+                  <h4 className="content__heading--sub">Humayun Ahmed</h4>
+                </a>
+              </div>
+              <div className="content__row--books">
+                <a href="#" className="content__book-link">
+                  <img
+                    src="./assets/books/book-3.gif"
+                    alt="#"
+                    className="content__poster"
+                  />
+                  <h4 className="content__heading--sub">Amar Bondhu Rashed</h4>
+                  <h4 className="content__heading--sub">Jafar Iqbal</h4>
+                </a>
+              </div>
+              <div className="content__row--books">
+                <a href="#" className="content__book-link">
+                  <img
+                    src="./assets/books/book-4.gif"
+                    alt="#"
+                    className="content__poster"
+                  />
+                  <h4 className="content__heading--sub">Shohoj Calculus</h4>
+                  <h4 className="content__heading--sub">Jafar Iqbal</h4>
+                </a>
+              </div>
+              <div className="content__row--books">
+                <a href="#" className="content__book-link">
+                  <img
+                    src="./assets/books/book-5.jpg"
+                    alt="#"
+                    className="content__poster"
+                  />
+                  <h4 className="content__heading--sub">Shobuj Dwiper Raja</h4>
+                  <h4 className="content__heading--sub">Sunil Gongopaddhay</h4>
+                </a>
+              </div>
+              <div className="content__row--books">
+                <a href="#" className="content__book-link">
+                  <img
+                    src="./assets/books/book-6.gif"
+                    alt="#"
+                    className="content__poster"
+                  />
+                  <h4 className="content__heading--sub">
+                    Agneyhogirir Peter Moddhe
+                  </h4>
+                  <h4 className="content__heading--sub">Sunil Gongopaddhayd</h4>
+                </a>
+              </div>
+              <div className="content__row--books">
+                <a href="#" className="content__book-link">
+                  <img
+                    src="./assets/books/book-7.jpg"
+                    alt="#"
+                    className="content__poster"
+                  />
+                  <h4 className="content__heading--sub">Nirbashon</h4>
+                  <h4 className="content__heading--sub">Sadat Hossain</h4>
+                </a>
+              </div>
+              <div className="content__row--books">
+                <a href="#" className="content__book-link">
+                  <img
+                    src="./assets/books/book-8.jpg"
+                    alt="#"
+                    className="content__poster"
+                  />
+                  <h4 className="content__heading--sub">Choddobesh</h4>
+                  <h4 className="content__heading--sub">Sadat Hossain</h4>
+                </a>
+              </div>
+              <div className="content__row--books">
+                <a href="#" className="content__book-link">
+                  <img
+                    src="./assets/books/book-9.jpg"
+                    alt="#"
+                    className="content__poster"
+                  />
+                  <h4 className="content__heading--sub">
+                    Sreshtho Robindro Sanget
+                  </h4>
+                  <h4 className="content__heading--sub">Rabindranath Tagore</h4>
+                </a>
+              </div>
+              <div className="content__row--books">
+                <a href="#" className="content__book-link">
+                  <img
+                    src="./assets/books/book-10.jpg"
+                    alt="#"
+                    className="content__poster"
+                  />
+                  <h4 className="content__heading--sub">Sesher Kobita</h4>
+                  <h4 className="content__heading--sub">Rabindranath Tagore</h4>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="col-lg-4">
+          <div className="side-content">
+            <div className="side-content__head">
+              <span className="side-content__v-line"></span>
+              <span className="side-content__heading">Recently Added</span>
+              <span className="side-content__v-line-lg"></span>
+            </div>
+            <div className="side-content__main">
+              <div className="side-content__row">
+                <div className="side-content__row--side">
+                  <a href="#" className="content__book-link">
+                    <div className="side-content--floating">
+                      <img
+                        src="./assets/books/book-1.jpg"
+                        alt="#"
+                        className="content__poster"
+                      />
+                      <div className="side-content__heading-side">
+                        <h4 className="side-content__heading--sub">
+                          Jochna O Jononir Golpo
+                        </h4>
+                        <h4 className="side-content__heading--sub">
+                          Humayun Ahmed
+                        </h4>
+                        <h3 className="side-content__heading--sub">
+                          File Size: 1.2 Mb
+                        </h3>
+                        <h3 className="side-content__heading--sub">
+                          Uploaded: 24.01.20
+                        </h3>
+                        <h3 className="side-content__heading--sub">
+                          Rating: ⭐⭐⭐
+                        </h3>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div className="side-content__row--side">
+                  <a href="#" className="content__book-link">
+                    <div className="side-content--floating">
+                      <img
+                        src="./assets/books/book-2.jpg"
+                        alt="#"
+                        className="content__poster"
+                      />
+                      <div className="side-content__heading-side">
+                        <h4 className="side-content__heading--sub">Opekkha</h4>
+                        <h4 className="side-content__heading--sub">
+                          Humayun Ahmed
+                        </h4>
+                        <h3 className="side-content__heading--sub">
+                          File Size: 1.2 Mb
+                        </h3>
+                        <h3 className="side-content__heading--sub">
+                          Uploaded: 24.01.20
+                        </h3>
+                        <h3 className="side-content__heading--sub">
+                          Rating: ⭐⭐⭐
+                        </h3>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div className="side-content__row--side">
+                  <a href="#" className="content__book-link">
+                    <div className="side-content--floating">
+                      <img
+                        src="./assets/books/book-3.gif"
+                        alt="#"
+                        className="content__poster"
+                      />
+                      <div className="side-content__heading-side">
+                        <h4 className="side-content__heading--sub">
+                          Amar Bondhu Rashed
+                        </h4>
+                        <h4 className="side-content__heading--sub">
+                          Jafar Iqbal
+                        </h4>
+                        <h3 className="side-content__heading--sub">
+                          File Size: 1.2 Mb
+                        </h3>
+                        <h3 className="side-content__heading--sub">
+                          Uploaded: 24.01.20
+                        </h3>
+                        <h3 className="side-content__heading--sub">
+                          Rating: ⭐⭐⭐
+                        </h3>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div className="side-content__row--side">
+                  <a href="#" className="content__book-link">
+                    <div className="side-content--floating">
+                      <img
+                        src="./assets/books/book-4.gif"
+                        alt="#"
+                        className="content__poster"
+                      />
+                      <div className="side-content__heading-side">
+                        <h4 className="side-content__heading--sub">
+                          Shohoj Calculus
+                        </h4>
+                        <h4 className="side-content__heading--sub">
+                          Jafar Iqbal
+                        </h4>
+                        <h3 className="side-content__heading--sub">
+                          File Size: 1.2 Mb
+                        </h3>
+                        <h3 className="side-content__heading--sub">
+                          Uploaded: 24.01.20
+                        </h3>
+                        <h3 className="side-content__heading--sub">
+                          Rating: ⭐⭐⭐
+                        </h3>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div className="side-content__row--side">
+                  <a href="#" className="content__book-link">
+                    <div className="side-content--floating">
+                      <img
+                        src="./assets/books/book-5.jpg"
+                        alt="#"
+                        className="content__poster"
+                      />
+                      <div className="side-content__heading-side">
+                        <h4 className="side-content__heading--sub">
+                          Shobuj Dwiper Raja
+                        </h4>
+                        <h4 className="side-content__heading--sub">
+                          Sunil Gongopaddhay
+                        </h4>
+                        <h3 className="side-content__heading--sub">
+                          File Size: 1.2 Mb
+                        </h3>
+                        <h3 className="side-content__heading--sub">
+                          Uploaded: 24.01.20
+                        </h3>
+                        <h3 className="side-content__heading--sub">
+                          Rating: ⭐⭐⭐
+                        </h3>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div className="side-content__row--side">
+                  <a href="#" className="content__book-link">
+                    <div className="side-content--floating">
+                      <img
+                        src="./assets/books/book-1.jpg"
+                        alt="#"
+                        className="content__poster"
+                      />
+                      <div className="side-content__heading-side">
+                        <h4 className="side-content__heading--sub">
+                          Jochna O Jononir Golpo
+                        </h4>
+                        <h4 className="side-content__heading--sub">
+                          Humayun Ahmed
+                        </h4>
+                        <h3 className="side-content__heading--sub">
+                          File Size: 1.2 Mb
+                        </h3>
+                        <h3 className="side-content__heading--sub">
+                          Uploaded: 24.01.20
+                        </h3>
+                        <h3 className="side-content__heading--sub">
+                          Rating: ⭐⭐⭐
+                        </h3>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div className="side-content__row--side">
+                  <a href="#" className="content__book-link">
+                    <div className="side-content--floating">
+                      <img
+                        src="./assets/books/book-2.jpg"
+                        alt="#"
+                        className="content__poster"
+                      />
+                      <div className="side-content__heading-side">
+                        <h4 className="side-content__heading--sub">Opekkha</h4>
+                        <h4 className="side-content__heading--sub">
+                          Humayun Ahmed
+                        </h4>
+                        <h3 className="side-content__heading--sub">
+                          File Size: 1.2 Mb
+                        </h3>
+                        <h3 className="side-content__heading--sub">
+                          Uploaded: 24.01.20
+                        </h3>
+                        <h3 className="side-content__heading--sub">
+                          Rating: ⭐⭐⭐
+                        </h3>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div className="side-content__row--side">
+                  <a href="#" className="content__book-link">
+                    <div className="side-content--floating">
+                      <img
+                        src="./assets/books/book-3.gif"
+                        alt="#"
+                        className="content__poster"
+                      />
+                      <div className="side-content__heading-side">
+                        <h4 className="side-content__heading--sub">
+                          Amar Bondhu Rashed
+                        </h4>
+                        <h4 className="side-content__heading--sub">
+                          Jafar Iqbal
+                        </h4>
+                        <h3 className="side-content__heading--sub">
+                          File Size: 1.2 Mb
+                        </h3>
+                        <h3 className="side-content__heading--sub">
+                          Uploaded: 24.01.20
+                        </h3>
+                        <h3 className="side-content__heading--sub">
+                          Rating: ⭐⭐⭐
+                        </h3>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div className="side-content__row--side">
+                  <a href="#" className="content__book-link">
+                    <div className="side-content--floating">
+                      <img
+                        src="./assets/books/book-4.gif"
+                        alt="#"
+                        className="content__poster"
+                      />
+                      <div className="side-content__heading-side">
+                        <h4 className="side-content__heading--sub">
+                          Shohoj Calculus
+                        </h4>
+                        <h4 className="side-content__heading--sub">
+                          Jafar Iqbal
+                        </h4>
+                        <h3 className="side-content__heading--sub">
+                          File Size: 1.2 Mb
+                        </h3>
+                        <h3 className="side-content__heading--sub">
+                          Uploaded: 24.01.20
+                        </h3>
+                        <h3 className="side-content__heading--sub">
+                          Rating: ⭐⭐⭐
+                        </h3>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div className="side-content__row--side">
+                  <a href="#" className="content__book-link">
+                    <div className="side-content--floating">
+                      <img
+                        src="./assets/books/book-5.jpg"
+                        alt="#"
+                        className="content__poster"
+                      />
+                      <div className="side-content__heading-side">
+                        <h4 className="side-content__heading--sub">
+                          Shobuj Dwiper Raja
+                        </h4>
+                        <h4 className="side-content__heading--sub">
+                          Sunil Gongopaddhay
+                        </h4>
+                        <h3 className="side-content__heading--sub">
+                          File Size: 1.2 Mb
+                        </h3>
+                        <h3 className="side-content__heading--sub">
+                          Uploaded: 24.01.20
+                        </h3>
+                        <h3 className="side-content__heading--sub">
+                          Rating: ⭐⭐⭐
+                        </h3>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
   );
 }
