@@ -65,10 +65,8 @@ export default function bookDetails(props) {
               <p className="details__main">{book.bookDetails}</p>
             </div>
             <div className="details__author">
-              <h2 className="details__heading">
-                Read the book description before downloading
-              </h2>
-              <p className="details__main">{book.bookDetails}</p>
+              <h2 className="details__heading">Some Words about the Writer</h2>
+              <p className="details__main">{book.authorDetails}</p>
             </div>
           </div>
           <div className="button">
@@ -84,7 +82,7 @@ export default function bookDetails(props) {
               Download
             </a>
           </div>
-          <Feature isInSlug/>
+          <Feature isInSlug />
           <div className="content__box">
             <h2 className="content__main-heading">
               More Books From Humayun Ahmed
