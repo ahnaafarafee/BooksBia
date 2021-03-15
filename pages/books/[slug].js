@@ -84,7 +84,7 @@ export default function bookDetails(props) {
               Download
             </a>
           </div>
-          <Feature/>
+          <Feature isInSlug/>
           <div className="content__box">
             <h2 className="content__main-heading">
               More Books From Humayun Ahmed
