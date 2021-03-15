@@ -75,6 +75,25 @@ a {
   }
 }
 
+// nProgress styling
+#nprogress .bar {
+  height: 3px;
+}
+
+#container {
+  padding: 40px;
+  background-color: grey;
+  color: white;
+}
+#nprogress .bar {
+  background: $color-primary-dark;
+}
+
+#nprogress .spinner-icon {
+  border-top-color: $color-primary;
+  border-left-color: $color-primary;
+}
+
 body {
   margin: 0;
   box-sizing: border-box;
