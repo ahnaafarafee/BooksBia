@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import Feature from "../components/Feature/feature";
+import Feature from "../components/Feature/Feature";
 import MainContent from "../components/MainContent/MainContent";
 
 export default function Home() {

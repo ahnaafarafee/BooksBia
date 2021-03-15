@@ -33,9 +33,9 @@ function Feature() {
             <div className="col-lg-4">
               <div className="feature__svg--box">
                 <img
-                  src="./svg/feature-book-svg.svg"
                   id="img"
-                  alt="feature svg"
+                  src="https://firebasestorage.googleapis.com/v0/b/booksiba-28d4a.appspot.com/o/feature-book-svg.svg?alt=media&token=ede3340a-2813-45ab-a6cb-0551aaa457b1"
+                  alt="Read and Download Books for Free"
                   className="feature__svg"
                 />
               </div>

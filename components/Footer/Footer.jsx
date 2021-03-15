@@ -9,8 +9,8 @@ function Footer() {
             <div className="col-md-4 offset-md-4">
               <div className="footer__logo-box">
                 <img
-                  src="./logo/logo.svg"
-                  alt="BooksBia Logo"
+                  src="https://firebasestorage.googleapis.com/v0/b/booksiba-28d4a.appspot.com/o/logo.svg?alt=media&token=17ac9b41-d2a8-4b8f-a774-96432659365b"
+                  alt="BooksBia"
                   className="footer__logo"
                 />
               </div>
@@ -58,7 +58,7 @@ function Footer() {
                     <a href="https://twitter.com/ahnaaf_al" target="_blank">
                       <i className="fab fa-twitter-square"></i>
                     </a>
-                    <a href="https://instagram.com/__ahnaaf" target="_blank">
+                    <a href="https://instagram.com/ahnaaf__" target="_blank">
                       <i className="fab fa-instagram-square"></i>
                     </a>
                     <a href="https://youtube.com" target="_blank">
