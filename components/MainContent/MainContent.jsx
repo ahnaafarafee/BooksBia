@@ -4,8 +4,9 @@ import MainContentBooks from "./MainContentBooks";
 import SideContentBooks from "./sideContentBooks";
 
 import firebase from "../../services/firebase";
+import Loader from "../Loader/Loader";
 
-function MainContent() {
+export default function MainContent() {
   const db = firebase.firestore();
 
   const [books, setBooks] = useState([]);
@@ -22,8 +23,7 @@ function MainContent() {
       )
     );
 
-    db.collection("books")
-    .onSnapshot((snapshot) =>
+    db.collection("books").onSnapshot((snapshot) =>
       setBooksNewAdded(
         snapshot.docs.map((doc) => ({ id: doc.id, book: doc.data() }))
       )
@@ -39,19 +39,23 @@ function MainContent() {
               <div className="content__box">
                 <h2 className="content__main-heading">Trending</h2>
                 <div className="content__row">
-                  {books.map(({ book, id }, index) => {
-                    if (index <= 10) {
-                      return (
-                        <MainContentBooks
-                          key={id}
-                          imageUrl={book.imageUrl}
-                          name={book.name}
-                          author={book.author}
-                          slug={book.slug}
-                        />
-                      );
-                    }
-                  })}
+                  {books.length ? (
+                    books.map(({ book, id }, index) => {
+                      if (index <= 10) {
+                        return (
+                          <MainContentBooks
+                            key={id}
+                            imageUrl={book?.imageUrl}
+                            name={book?.name}
+                            author={book?.author}
+                            slug={book?.slug}
+                          />
+                        );
+                      }
+                    })
+                  ) : (
+                    <Loader show />
+                  )}
                 </div>
               </div>
             </div>
@@ -64,19 +68,23 @@ function MainContent() {
                 </div>
                 <div className="side-content__main">
                   <div className="side-content__row">
-                    {booksNewAdded.map(({ id, book }, index) => {
-                      if (index <= 20) {
-                        return (
-                          <SideContentBooks
-                            key={id}
-                            imageUrl={book.imageUrl}
-                            name={book.name}
-                            author={book.author}
-                            slug={book.slug}
-                          />
-                        );
-                      }
-                    })}
+                    {booksNewAdded.length ? (
+                      booksNewAdded.map(({ id, book }, index) => {
+                        if (index <= 20) {
+                          return (
+                            <SideContentBooks
+                              key={id}
+                              imageUrl={book?.imageUrl}
+                              name={book?.name}
+                              author={book?.author}
+                              slug={book?.slug}
+                            />
+                          );
+                        }
+                      })
+                    ) : (
+                      <Loader show />
+                    )}
                   </div>
                 </div>
               </div>
@@ -87,5 +95,3 @@ function MainContent() {
     </>
   );
 }
-
-export default MainContent;

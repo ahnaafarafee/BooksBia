@@ -1,7 +1,6 @@
 import Link from "next/link";
 
-function MainContentBooks({ imageUrl, name, author, slug }) {
-
+export default function MainContentBooks({ imageUrl, name, author, slug }) {
   return (
     <>
       <div className="content__row--books">
@@ -16,5 +15,3 @@ function MainContentBooks({ imageUrl, name, author, slug }) {
     </>
   );
 }
-
-export default MainContentBooks;
