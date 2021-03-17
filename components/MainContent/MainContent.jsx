@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
+import Loader from "react-loader-spinner";
 
 import MainContentBooks from "./MainContentBooks";
 import SideContentBooks from "./sideContentBooks";
 
 import firebase from "../../services/firebase";
-import Loader from "../Loader/Loader";
+// import Loader from "../Loader/Loader";
 
 export default function MainContent() {
   const db = firebase.firestore();
@@ -22,7 +23,6 @@ export default function MainContent() {
           .map((doc) => ({ id: doc.id, book: doc.data() }))
       )
     );
-
     db.collection("books").onSnapshot((snapshot) =>
       setBooksNewAdded(
         snapshot.docs.map((doc) => ({ id: doc.id, book: doc.data() }))
@@ -54,7 +54,14 @@ export default function MainContent() {
                       }
                     })
                   ) : (
-                    <Loader show />
+                    <div style={{ textAlign: "center" }}>
+                      <Loader
+                        type="ThreeDots"
+                        color="#101d2c"
+                        height={50}
+                        width={50}
+                      />
+                    </div>
                   )}
                 </div>
               </div>
@@ -83,7 +90,14 @@ export default function MainContent() {
                         }
                       })
                     ) : (
-                      <Loader show />
+                      <div style={{ textAlign: "center" }}>
+                        <Loader
+                          type="ThreeDots"
+                          color="#101d2c"
+                          height={50}
+                          width={50}
+                        />
+                      </div>
                     )}
                   </div>
                 </div>
