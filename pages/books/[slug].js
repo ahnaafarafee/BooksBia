@@ -1,52 +1,41 @@
+import { useEffect, useState } from "react";
+import Loader from "react-loader-spinner";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-import Feature from "../../components/Feature/Feature";
 import firebase from "../../services/firebase";
-import Loader from "../../components/Loader/Loader";
 
-export const getStaticProps = async (context) => {
-  const db = firebase.firestore();
-  const { slug } = context.params;
-  const res = await db.collection("books").where("slug", "==", slug).get();
-  const book = res.docs.map((book) => book.data());
-  if (book.length) {
-    return {
-      props: {
-        book: book[0],
-      },
-    };
-  } else {
-    return {
-      props: {},
-    };
-  }
-};
-export async function getStaticPaths() {
-  const db = firebase.firestore();
-
-  const snapshot = await db.collection("books").get();
-
-  const paths = snapshot.docs.map((doc) => {
-    const { slug } = doc.data();
-
-    return {
-      params: { slug },
-    };
-  });
-
-  return {
-    paths,
-    fallback: false,
-  };
-}
+import Feature from "../../components/Feature/Feature";
+import MainContentBooks from "../../components/MainContent/MainContentBooks";
+import SideContentBooks from "../../components/MainContent/sideContentBooks";
 
 export default function bookDetails(props) {
   const router = useRouter();
   const { book } = props;
 
+  const [bookByAuthor, setBookByAuthor] = useState([]);
+  const [booksNewAdded, setBooksNewAdded] = useState([]);
+
+  useEffect(() => {
+    const db = firebase.firestore();
+
+    db.collection("books")
+      .where("author", "==", book.author)
+      .onSnapshot((snapshot) =>
+        setBookByAuthor(
+          snapshot.docs.map((doc) => ({ id: doc.id, book: doc.data() }))
+        )
+      );
+
+    db.collection("books").onSnapshot((snapshot) =>
+      setBooksNewAdded(
+        snapshot.docs.map((doc) => ({ id: doc.id, book: doc.data() }))
+      )
+    );
+  }, []);
+
   if (router.isFallback) {
-    return <Loader show/>;
+    return "Loading...";
   } else {
     if (book) {
       return (
@@ -109,22 +98,31 @@ export default function bookDetails(props) {
                 <Feature isInSlug />
                 <div className="content__box">
                   <h2 className="content__main-heading">
-                    More Books From Humayun Ahmed
+                    More books by {book.author}
                   </h2>
                   <div className="content__row">
-                    <div className="content__row--books">
-                      <a href="#" className="content__book-link">
-                        <img
-                          src="./assets/books/book-1.jpg"
-                          alt="#"
-                          className="content__poster"
+                    {bookByAuthor.length ? (
+                      bookByAuthor.map(({ book, id }) => {
+                        return (
+                          <MainContentBooks
+                            key={id}
+                            imageUrl={book?.imageUrl}
+                            name={book?.name}
+                            author={book?.author}
+                            slug={book?.slug}
+                          />
+                        );
+                      })
+                    ) : (
+                      <div style={{ textAlign: "center" }}>
+                        <Loader
+                          type="ThreeDots"
+                          color="#101d2c"
+                          height={50}
+                          width={50}
                         />
-                        <h4 className="content__heading--sub">
-                          Jochna O Jononir Golpo
-                        </h4>
-                        <h4 className="content__heading--sub">Humayun Ahmed</h4>
-                      </a>
-                    </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -139,63 +137,30 @@ export default function bookDetails(props) {
                   </div>
                   <div className="side-content__main">
                     <div className="side-content__row">
-                      <div className="side-content__row--side">
-                        <a href="#" className="content__book-link">
-                          <div className="side-content--floating">
-                            <img
-                              src="./assets/books/book-1.jpg"
-                              alt="#"
-                              className="content__poster"
-                            />
-                            <div className="side-content__heading-side">
-                              <h4 className="side-content__heading--sub">
-                                Jochna O Jononir Golpo
-                              </h4>
-                              <h4 className="side-content__heading--sub">
-                                Humayun Ahmed
-                              </h4>
-                              <h3 className="side-content__heading--sub">
-                                File Size: 1.2 Mb
-                              </h3>
-                              <h3 className="side-content__heading--sub">
-                                Uploaded: 24.01.20
-                              </h3>
-                              <h3 className="side-content__heading--sub">
-                                Rating: ⭐⭐⭐
-                              </h3>
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-
-                      <div className="side-content__row--side">
-                        <a href="#" className="content__book-link">
-                          <div className="side-content--floating">
-                            <img
-                              src="./assets/books/book-2.jpg"
-                              alt="#"
-                              className="content__poster"
-                            />
-                            <div className="side-content__heading-side">
-                              <h4 className="side-content__heading--sub">
-                                Opekkha
-                              </h4>
-                              <h4 className="side-content__heading--sub">
-                                Humayun Ahmed
-                              </h4>
-                              <h3 className="side-content__heading--sub">
-                                File Size: 1.2 Mb
-                              </h3>
-                              <h3 className="side-content__heading--sub">
-                                Uploaded: 24.01.20
-                              </h3>
-                              <h3 className="side-content__heading--sub">
-                                Rating: ⭐⭐⭐
-                              </h3>
-                            </div>
-                          </div>
-                        </a>
-                      </div>
+                      {booksNewAdded.length ? (
+                        booksNewAdded.map(({ id, book }, index) => {
+                          if (index <= 20) {
+                            return (
+                              <SideContentBooks
+                                key={id}
+                                imageUrl={book?.imageUrl}
+                                name={book?.name}
+                                author={book?.author}
+                                slug={book?.slug}
+                              />
+                            );
+                          }
+                        })
+                      ) : (
+                        <div style={{ textAlign: "center" }}>
+                          <Loader
+                            type="ThreeDots"
+                            color="#101d2c"
+                            height={50}
+                            width={50}
+                          />
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -206,4 +171,40 @@ export default function bookDetails(props) {
       );
     }
   }
+}
+
+export const getStaticProps = async (context) => {
+  const db = firebase.firestore();
+  const { slug } = context.params;
+  const res = await db.collection("books").where("slug", "==", slug).get();
+  const book = res.docs.map((book) => book.data());
+  if (book.length) {
+    return {
+      props: {
+        book: book[0],
+      },
+    };
+  } else {
+    return {
+      props: {},
+    };
+  }
+};
+export async function getStaticPaths() {
+  const db = firebase.firestore();
+
+  const snapshot = await db.collection("books").get();
+
+  const paths = snapshot.docs.map((doc) => {
+    const { slug } = doc.data();
+
+    return {
+      params: { slug },
+    };
+  });
+
+  return {
+    paths,
+    fallback: false,
+  };
 }

@@ -12,7 +12,7 @@ export default function MainContent() {
 
   const [books, setBooks] = useState([]);
   const [booksNewAdded, setBooksNewAdded] = useState([]);
-
+  
   useEffect(() => {
     db.collection("books").onSnapshot((snapshot) =>
       setBooks(
