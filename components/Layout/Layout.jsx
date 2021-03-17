@@ -14,9 +14,6 @@ Router.onRouteChangeComplete = () => nProgress.done();
 Router.onRouteChangeError = () => nProgress.done();
 
 function Layout({ children }) {
-  if (!children) {
-    return <Loader show/>;
-  }
   return (
     <>
       <Head>
@@ -37,9 +34,13 @@ function Layout({ children }) {
           crossOrigin="anonymous"
         />
       </Head>
-      <Navbar />
-      {children}
-      <Footer />
+      <div className="container">
+        <Navbar />
+        <main>
+          {children}
+          <Footer />
+        </main>
+      </div>
     </>
   );
 }
