@@ -1,6 +1,9 @@
-import Head from "next/head";
+import { useEffect, useState } from "react";
 
 import Link from "next/link";
+import firebase from "../../services/firebase";
+
+const db = firebase.firestore();
 
 const menuContent = [
   "Read Blog",
@@ -12,19 +15,6 @@ const menuContent = [
   "Privacy Policy",
 ];
 
-const writers = [
-  "Humayun Ahmed",
-  "Jafar Iqbal",
-  "Sadat Hossain",
-  "Anisul Haq",
-  "Kazi Nazrul Islam",
-  "Rabindranath Tagore",
-  "Bibhutibhushan Bandopaddhay",
-  "Manik Bando padhyay",
-  "Saratchandra Chattopadhyay",
-  "Michael Madhusudan Dutta",
-];
-
 const bookSeries = [
   "Himu Series",
   "Misir Ali Series",
@@ -33,22 +23,28 @@ const bookSeries = [
   "Masud Rana Series",
 ];
 
-function Nav() {
+const genres = [
+  "Novels",
+  "Detective",
+  "Poem",
+  "Adventure",
+  "Story books",
+  "English Language Books",
+];
+
+export default function Nav() {
+  const [authors, setAuthors] = useState([]);
+
+  useEffect(() => {
+    db.collection("authors").onSnapshot((snapshot) =>
+      setAuthors(
+        snapshot.docs.map((doc) => ({ id: doc.id, author: doc.data() }))
+      )
+    );
+  }, []);
+
   return (
     <div>
-      <Head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
-          integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
-          crossOrigin="anonymous"
-        />
-        <script
-          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-          crossOrigin="anonymous"
-        ></script>
-      </Head>
       {/* main header */}
       <div className="collapse" id="navbarToggleExternalContent">
         <div className="nav-toggle">
@@ -107,7 +103,7 @@ function Nav() {
               <button className="cta">Blog</button>
             </div>
             <div className="drop-list">
-              <button className="cta">Trending</button>
+              <button className="cta">Become a Writer</button>
             </div>
 
             <div className="drop-list">
@@ -124,10 +120,33 @@ function Nav() {
                 className="dropdown-menu"
                 aria-labelledby="dropdownMenuButton1"
               >
-                {writers.map((writer, index) => (
+                {authors.map(({ id, author }) => (
+                  <li key={id}>
+                    <Link href={`authors/${author.slug}`}>
+                      <a className="dropdown-item">{author.name}</a>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="drop-list">
+              <button
+                className="dropdown-toggle cta"
+                type="button"
+                id="dropdownMenuButton1"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Genre
+              </button>
+              <ul
+                className="dropdown-menu"
+                aria-labelledby="dropdownMenuButton1"
+              >
+                {genres.map((genre, index) => (
                   <li key={index}>
                     <a className="dropdown-item" href="#">
-                      {writer}
+                      {genre}
                     </a>
                   </li>
                 ))}
@@ -156,23 +175,9 @@ function Nav() {
                 ))}
               </ul>
             </div>
-            <div className="drop-list">
-              <button className="cta">Poems</button>
-            </div>
-            <div className="drop-list">
-              <button className="cta">Horror</button>
-            </div>
-            <div className="drop-list">
-              <button className="cta">Anubaad</button>
-            </div>
-            <div className="drop-list">
-              <button className="cta">Detective Novels</button>
-            </div>
           </div>
         </div>
       </section>
     </div>
   );
 }
-
-export default Nav;
