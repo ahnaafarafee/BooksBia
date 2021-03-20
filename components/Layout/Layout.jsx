@@ -4,9 +4,9 @@ import nProgress from "nprogress";
 
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
-import Loader from "../Loader/Loader";
 
 Router.onRouteChangeStart = (url) => {
+  console.log(url);
   nProgress.start();
 };
 
@@ -42,10 +42,8 @@ function Layout({ children }) {
       </Head>
       <div className="container">
         <Navbar />
-        <main>
-          {children}
-          <Footer />
-        </main>
+        {children}
+        <Footer />
       </div>
     </>
   );

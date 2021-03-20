@@ -7,7 +7,7 @@ function SideContentBooks({ imageUrl, name, author, slug }) {
 
   return (
     <div>
-      <Link href={`books/${slug}`}>
+      <Link href={`/books/${slug}`}>
         <div className="side-content__row--side">
           <div className="content__book-link">
             <div className="side-content--floating">

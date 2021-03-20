@@ -122,8 +122,8 @@ export default function Nav() {
               >
                 {authors.map(({ id, author }) => (
                   <li key={id}>
-                    <Link href={`authors/${author.slug}`}>
-                      <a className="dropdown-item">{author.name}</a>
+                    <Link href={`/authors/${author.slug}`}>
+                      <a className="dropdown-item">{author.name}</a>  
                     </Link>
                   </li>
                 ))}
