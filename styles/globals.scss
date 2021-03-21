@@ -122,7 +122,6 @@ body {
   background-color: $color-grey;
 }
 
-
 .logo {
   cursor: pointer !important;
 }
@@ -700,6 +699,8 @@ main {
   user-select: none;
   font-size: $default-font-size;
   padding: 2rem;
+  text-align: justify;
+  text-justify: inter-word;
 
   &__heading {
     color: $color-grey-2;
@@ -727,4 +728,11 @@ main {
       color: $color-green-dark;
     }
   }
+}
+
+// Truncated Strings
+.readMore {
+  color: rgb(56, 56, 158);
+  font-weight: 800;
+  cursor: pointer;
 }

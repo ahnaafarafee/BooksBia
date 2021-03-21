@@ -17,6 +17,17 @@ export default function bookDetails(props) {
 
   const [bookByAuthor, setBookByAuthor] = useState([]);
   const [booksNewAdded, setBooksNewAdded] = useState([]);
+  const [isTruncated, setIsTruncated] = useState(true);
+
+  const authorDesc = book.authorDetails;
+
+  const truncateAuthorDesc = isTruncated
+    ? authorDesc.slice(0, 800)
+    : authorDesc;
+
+  const toggleIsTruncated = () => {
+    setIsTruncated(!isTruncated);
+  };
 
   useEffect(() => {
     db.collection("books")
@@ -75,7 +86,15 @@ export default function bookDetails(props) {
                     <h2 className="details__heading">
                       Some Words about the Writer
                     </h2>
-                    <p className="details__main">{book.authorDetails}</p>
+                    <p className="details__main">
+                      {truncateAuthorDesc}
+                      <span
+                        onClick={() => setIsTruncated(toggleIsTruncated)}
+                        className="readMore"
+                      >
+                        {isTruncated ? "... Read More" : "  Read Less"}
+                      </span>
+                    </p>
                   </div>
                 </div>
                 <div className="button">

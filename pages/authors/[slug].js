@@ -63,7 +63,7 @@ export default function Author(props) {
                 {truncateAuthorDesc}
                 <span
                   onClick={() => setIsTruncated(toggleIsTruncated)}
-                  className={classes.readMore}
+                  className="readMore"
                 >
                   {isTruncated ? "... Read More" : "  Read Less"}
                 </span>
