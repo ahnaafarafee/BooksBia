@@ -1,0 +1,39 @@
+$color-primary: #17202a;
+$color-primary-dark: #001d3f;
+$color-primary-light: #101d2c;
+
+$color-white: #ffff;
+
+$color-grey: #ecedee;
+$color-grey-2: #858688;
+$color-grey-3: #4f5050;
+$color-grey-light: #b6b6b6;
+
+$color-black: black;
+
+$color-main: #f1f8ff;
+
+$color-green: rgba(52, 173, 52, 0.863);
+$color-green-dark: rgba(26, 97, 26, 0.753);
+
+$default-font-size: 1.6rem;
+
+.imageBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.img {
+  border-radius: 50%;
+}
+
+.header {
+  font-size: $default-font-size;
+  color: $color-primary-light;
+}
+
+.description {
+  font-size: 1.3rem;
+  color: $color-primary-light;
+}
