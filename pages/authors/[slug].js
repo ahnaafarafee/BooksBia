@@ -1,5 +1,9 @@
 import Head from "next/head";
+import { useEffect, useState } from "react";
+import Loader from "react-loader-spinner";
 
+import MainContentBooks from "../../components/MainContent/MainContentBooks";
+import SideContentBooks from "../../components/MainContent/sideContentBooks";
 import firebase from "../../services/firebase";
 
 import classes from "../../styles/authors.module.scss";
@@ -7,30 +11,134 @@ import classes from "../../styles/authors.module.scss";
 const db = firebase.firestore();
 
 export default function Author(props) {
+  const [booksByAuthor, setBooksByAuthor] = useState([]);
+  const [booksNewAdded, setBooksNewAdded] = useState([]);
+  const [isTruncated, setIsTruncated] = useState(true);
+
   const { author } = props;
+  const authorDesc = author.about;
+
+  const truncateAuthorDesc = isTruncated
+    ? authorDesc.slice(0, 800)
+    : authorDesc;
+
+  const toggleIsTruncated = () => {
+    setIsTruncated(!isTruncated);
+  };
+
+  useEffect(() => {
+    db.collection("books")
+      .where("author", "==", author.name)
+      .onSnapshot((snapshot) =>
+        setBooksByAuthor(
+          snapshot.docs.map((doc) => ({ id: doc.id, book: doc.data() }))
+        )
+      );
+
+    db.collection("books").onSnapshot((snapshot) =>
+      setBooksNewAdded(
+        snapshot.docs.map((doc) => ({ id: doc.id, book: doc.data() }))
+      )
+    );
+  }, []);
 
   return (
-    <>
+    <div>
       <Head>
         <title>{author.name} | BooksBia</title>
       </Head>
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-8">
-            <div className={classes.imageBox}>
-              <img
-                className={classes.img}
-                src={author.photoUrl}
-                alt={author.name}
-              />
-              <span className={classes.header}>{author.name}</span>
+      <main>
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-8">
+              <div className={classes.imageBox}>
+                <img
+                  className={classes.img}
+                  src={author.photoUrl}
+                  alt={author.name}
+                />
+                <span className={classes.header}>{author.name}</span>
+              </div>
+              <div className={classes.description}>
+                {truncateAuthorDesc}
+                <span
+                  onClick={() => setIsTruncated(toggleIsTruncated)}
+                  className={classes.readMore}
+                >
+                  {isTruncated ? "... Read More" : "  Read Less"}
+                </span>
+              </div>
+              <div className="content__box">
+                <h2 className="content__main-heading">
+                  All Books of {author.name}
+                </h2>
+                <div className="content__row">
+                  {booksByAuthor.length ? (
+                    booksByAuthor.map(({ book, id }) => {
+                      return (
+                        <MainContentBooks
+                          key={id}
+                          imageUrl={book?.imageUrl}
+                          name={book?.name}
+                          author={book?.author}
+                          slug={book?.slug}
+                        />
+                      );
+                    })
+                  ) : (
+                    <div style={{ textAlign: "center" }}>
+                      <Loader
+                        type="ThreeDots"
+                        color="#101d2c"
+                        height={50}
+                        width={50}
+                      />
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
-            <div className={classes.description}>{author.about}</div>
+            <div className="col-lg-4">
+              <div className="side-content">
+                <div className="side-content__head">
+                  <span className="side-content__v-line"></span>
+                  <span className="side-content__heading">Recently Added</span>
+                  <span className="side-content__v-line-lg"></span>
+                </div>
+                <div className="side-content__main">
+                  <div className="side-content__row">
+                    {booksNewAdded.length ? (
+                      booksNewAdded.map(({ id, book }, index) => {
+                        if (index <= 20) {
+                          return (
+                            <SideContentBooks
+                              key={id}
+                              imageUrl={book?.imageUrl}
+                              name={book?.name}
+                              author={book?.author}
+                              slug={book?.slug}
+                            />
+                          );
+                        }
+                      })
+                    ) : (
+                      <div style={{ textAlign: "center" }}>
+                        <Loader
+                          type="ThreeDots"
+                          color="#101d2c"
+                          height={50}
+                          width={50}
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="col-lg-4">Small Col</div>
         </div>
-      </div>
-    </>
+      </main>
+    </div>
   );
 }
 

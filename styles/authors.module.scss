@@ -18,10 +18,15 @@ $color-green-dark: rgba(26, 97, 26, 0.753);
 
 $default-font-size: 1.6rem;
 
+.container {
+  background-color: $color-white;
+}
+
 .imageBox {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 1.5rem;
 }
 
 .img {
@@ -30,10 +35,20 @@ $default-font-size: 1.6rem;
 
 .header {
   font-size: $default-font-size;
+  font-weight: 600;
   color: $color-primary-light;
 }
 
 .description {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   color: $color-primary-light;
+  padding: 1rem;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.readMore {
+  color: rgb(56, 56, 158);
+  font-weight: 800;
+  cursor: pointer;
 }

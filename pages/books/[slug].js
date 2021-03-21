@@ -9,6 +9,8 @@ import Feature from "../../components/Feature/Feature";
 import MainContentBooks from "../../components/MainContent/MainContentBooks";
 import SideContentBooks from "../../components/MainContent/sideContentBooks";
 
+const db = firebase.firestore();
+
 export default function bookDetails(props) {
   const router = useRouter();
   const { book } = props;
@@ -17,8 +19,6 @@ export default function bookDetails(props) {
   const [booksNewAdded, setBooksNewAdded] = useState([]);
 
   useEffect(() => {
-    const db = firebase.firestore();
-
     db.collection("books")
       .where("author", "==", book.author)
       .onSnapshot((snapshot) =>
@@ -174,7 +174,6 @@ export default function bookDetails(props) {
 }
 
 export const getStaticProps = async (context) => {
-  const db = firebase.firestore();
   const { slug } = context.params;
   const res = await db.collection("books").where("slug", "==", slug).get();
   const book = res.docs.map((book) => book.data());
@@ -191,8 +190,6 @@ export const getStaticProps = async (context) => {
   }
 };
 export async function getStaticPaths() {
-  const db = firebase.firestore();
-
   const snapshot = await db.collection("books").get();
 
   const paths = snapshot.docs.map((doc) => {
