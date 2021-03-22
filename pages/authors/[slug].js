@@ -4,6 +4,7 @@ import Loader from "react-loader-spinner";
 
 import MainContentBooks from "../../components/MainContent/MainContentBooks";
 import SideContentBooks from "../../components/MainContent/sideContentBooks";
+import TruncateString from "../../components/truncateString/truncateString";
 import firebase from "../../services/firebase";
 
 import classes from "../../styles/authors.module.scss";
@@ -13,18 +14,9 @@ const db = firebase.firestore();
 export default function Author(props) {
   const [booksByAuthor, setBooksByAuthor] = useState([]);
   const [booksNewAdded, setBooksNewAdded] = useState([]);
-  const [isTruncated, setIsTruncated] = useState(true);
 
   const { author } = props;
   const authorDesc = author.about;
-
-  const truncateAuthorDesc = isTruncated
-    ? authorDesc.slice(0, 800)
-    : authorDesc;
-
-  const toggleIsTruncated = () => {
-    setIsTruncated(!isTruncated);
-  };
 
   useEffect(() => {
     db.collection("books")
@@ -60,13 +52,7 @@ export default function Author(props) {
                 <span className={classes.header}>{author.name}</span>
               </div>
               <div className={classes.description}>
-                {truncateAuthorDesc}
-                <span
-                  onClick={() => setIsTruncated(toggleIsTruncated)}
-                  className="readMore"
-                >
-                  {isTruncated ? "... Read More" : "  Read Less"}
-                </span>
+                <TruncateString authorDesc={authorDesc} max={800} />
               </div>
               <div className="content__box">
                 <h2 className="content__main-heading">
