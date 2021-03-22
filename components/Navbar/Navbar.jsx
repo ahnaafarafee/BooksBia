@@ -15,14 +15,6 @@ const menuContent = [
   "Privacy Policy",
 ];
 
-const bookSeries = [
-  "Himu Series",
-  "Misir Ali Series",
-  "Feluda Series",
-  "Tin Goyenda Series",
-  "Masud Rana Series",
-];
-
 const genres = [
   "Novels",
   "Detective",
@@ -34,11 +26,18 @@ const genres = [
 
 export default function Nav() {
   const [authors, setAuthors] = useState([]);
+  const [series, setSeries] = useState([]);
 
   useEffect(() => {
     db.collection("authors").onSnapshot((snapshot) =>
       setAuthors(
         snapshot.docs.map((doc) => ({ id: doc.id, author: doc.data() }))
+      )
+    );
+
+    db.collection("series").onSnapshot((snapshot) =>
+      setSeries(
+        snapshot.docs.map((doc) => ({ id: doc.id, series: doc.data() }))
       )
     );
   }, []);
@@ -123,7 +122,7 @@ export default function Nav() {
                 {authors.map(({ id, author }) => (
                   <li key={id}>
                     <Link href={`/authors/${author.slug}`}>
-                      <a className="dropdown-item">{author.name}</a>  
+                      <a className="dropdown-item">{author.name}</a>
                     </Link>
                   </li>
                 ))}
@@ -166,11 +165,11 @@ export default function Nav() {
                 className="dropdown-menu"
                 aria-labelledby="dropdownMenuButton1"
               >
-                {bookSeries.map((series, index) => (
-                  <li key={index}>
-                    <a className="dropdown-item" href="#">
-                      {series}
-                    </a>
+                {series.map(({ id, series }) => (
+                  <li key={id}>
+                    <Link href={`/series/${series.slug}`}>
+                      <a className="dropdown-item">{series.name}</a>
+                    </Link>
                   </li>
                 ))}
               </ul>
