@@ -15,31 +15,35 @@ const menuContent = [
   "Privacy Policy",
 ];
 
-const genres = [
-  "Novels",
-  "Detective",
-  "Poem",
-  "Adventure",
-  "Story books",
-  "English Language Books",
-];
-
 export default function Nav() {
   const [authors, setAuthors] = useState([]);
   const [series, setSeries] = useState([]);
+  const [genres, setGenres] = useState([]);
 
   useEffect(() => {
-    db.collection("authors").onSnapshot((snapshot) =>
-      setAuthors(
-        snapshot.docs.map((doc) => ({ id: doc.id, author: doc.data() }))
-      )
-    );
+    db.collection("authors")
+      .orderBy("name", "asc")
+      .onSnapshot((snapshot) =>
+        setAuthors(
+          snapshot.docs.map((doc) => ({ id: doc.id, author: doc.data() }))
+        )
+      );
 
-    db.collection("series").onSnapshot((snapshot) =>
-      setSeries(
-        snapshot.docs.map((doc) => ({ id: doc.id, series: doc.data() }))
-      )
-    );
+    db.collection("series")
+      .orderBy("name", "asc")
+      .onSnapshot((snapshot) =>
+        setSeries(
+          snapshot.docs.map((doc) => ({ id: doc.id, series: doc.data() }))
+        )
+      );
+
+    db.collection("genres")
+      .orderBy("name", "asc")
+      .onSnapshot((snapshot) =>
+        setGenres(
+          snapshot.docs.map((doc) => ({ id: doc.id, genre: doc.data() }))
+        )
+      );
   }, []);
 
   return (
@@ -142,11 +146,11 @@ export default function Nav() {
                 className="dropdown-menu"
                 aria-labelledby="dropdownMenuButton1"
               >
-                {genres.map((genre, index) => (
-                  <li key={index}>
-                    <a className="dropdown-item" href="#">
-                      {genre}
-                    </a>
+                {genres.map(({ genre, id }) => (
+                  <li key={id}>
+                    <Link href={`/genres/${genre.slug}`}>
+                      <a className="dropdown-item">{genre.name}</a>
+                    </Link>
                   </li>
                 ))}
               </ul>

@@ -7,7 +7,7 @@ import SideContentBooks from "../../components/MainContent/sideContentBooks";
 import TruncateString from "../../components/truncateString/truncateString";
 import firebase from "../../services/firebase";
 
-import classes from "../../styles/authors.module.scss";
+import classes from "../../styles/dynamic-pages.module.scss";
 
 const db = firebase.firestore();
 

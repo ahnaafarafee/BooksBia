@@ -4,26 +4,22 @@ import Loader from "react-loader-spinner";
 import Head from "next/head";
 
 import firebase from "../../services/firebase";
-import TruncateString from "../../components/truncateString/truncateString";
 import MainContentBooks from "../../components/MainContent/MainContentBooks";
 import SideContentBooks from "../../components/MainContent/sideContentBooks";
 
-import classes from "../../styles/dynamic-pages.module.scss";
-
 const db = firebase.firestore();
 
-export default function Series(props) {
-  const [booksBySeries, setBooksBySeries] = useState([]);
+export default function Genre(props) {
+  const [booksByGenre, setBooksByGenre] = useState([]);
   const [booksNewAdded, setBooksNewAdded] = useState([]);
 
-  const { series } = props;
-  const seriesDesc = series.description;
+  const { genre } = props;
 
   useEffect(() => {
     db.collection("books")
-      .where("series", "==", series.name)
+      .where("genre", "==", genre.slug)
       .onSnapshot((snapshot) =>
-        setBooksBySeries(
+        setBooksByGenre(
           snapshot.docs.map((doc) => ({ id: doc.id, book: doc.data() }))
         )
       );
@@ -38,30 +34,19 @@ export default function Series(props) {
   return (
     <div>
       <Head>
-        <title>{series.name} | BooksBia</title>
+        <title>{genre.name} | BooksBia</title>
       </Head>
       <main>
         <div className="container">
           <div className="row">
             <div className="col-lg-8">
-              <div className={classes.imageBox}>
-                <img
-                  className={classes.img}
-                  src={series.photoUrl}
-                  alt={series.name}
-                />
-                <span className={classes.header}>{series.name}</span>
-              </div>
-              <div className={classes.description}>
-                <TruncateString authorDesc={seriesDesc} max={800} />
-              </div>
               <div className="content__box">
                 <h2 className="content__main-heading">
-                  All Books of {series.name}
+                  All Books of {genre.name} genre
                 </h2>
                 <div className="content__row">
-                  {booksBySeries.length ? (
-                    booksBySeries.map(({ book, id }) => {
+                  {booksByGenre.length ? (
+                    booksByGenre.map(({ book, id }) => {
                       return (
                         <MainContentBooks
                           key={id}
@@ -131,12 +116,12 @@ export default function Series(props) {
 
 export const getStaticProps = async (context) => {
   const { slug } = context.params;
-  const res = await db.collection("series").where("slug", "==", slug).get();
-  const series = res.docs.map((series) => series.data());
-  if (series.length) {
+  const res = await db.collection("genres").where("slug", "==", slug).get();
+  const genre = res.docs.map((genre) => genre.data());
+  if (genre.length) {
     return {
       props: {
-        series: series[0],
+        genre: genre[0],
       },
     };
   } else {
@@ -145,8 +130,9 @@ export const getStaticProps = async (context) => {
     };
   }
 };
+
 export async function getStaticPaths() {
-  const snapshot = await db.collection("series").get();
+  const snapshot = await db.collection("genres").get();
 
   const paths = snapshot.docs.map((doc) => {
     const { slug } = doc.data();
