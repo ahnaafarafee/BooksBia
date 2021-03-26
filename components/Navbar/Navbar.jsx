@@ -52,25 +52,113 @@ export default function Nav() {
       <div className="collapse" id="navbarToggleExternalContent">
         <div className="nav-toggle">
           <ul className="nav-toggle__list">
-            {menuContent.map((menu, index) => (
-              <li className="nav-toggle__item" key={index}>
-                <a href="#" className="nav-toggle__link">
-                  {menu}
+            <li className="nav-toggle__item">
+              <a href="#" className="nav-toggle__link">
+                Blog
+              </a>
+            </li>
+            <li className="nav-toggle__item">
+              <a href="#" className="nav-toggle__link">
+                Become a Writer
+              </a>
+            </li>
+            <li className="nav-toggle__item">
+              <div className="drop-list">
+                <a
+                  className="dropdown-toggle nav-toggle__link"
+                  type="button"
+                  id="dropdownMenuButton1"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Writers
                 </a>
-              </li>
-            ))}
+                <ul
+                  className="dropdown-menu"
+                  aria-labelledby="dropdownMenuButton1"
+                >
+                  {authors.map(({ id, author }) => (
+                    <li key={id}>
+                      <Link href={`/authors/${author.slug}`}>
+                        <a className="dropdown-item">{author.name}</a>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </li>
+            <li className="nav-toggle__item">
+              <div className="drop-list">
+                <a
+                  className="dropdown-toggle nav-toggle__link"
+                  type="button"
+                  id="dropdownMenuButton1"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Genre
+                </a>
+                <ul
+                  className="dropdown-menu"
+                  aria-labelledby="dropdownMenuButton1"
+                >
+                  {genres.map(({ genre, id }) => (
+                    <li key={id}>
+                      <Link href={`/genres/${genre.slug}`}>
+                        <a className="dropdown-item">{genre.name}</a>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </li>
+            <li className="nav-toggle__item">
+              <div className="drop-list">
+                <a
+                  className="dropdown-toggle nav-toggle__link"
+                  type="button"
+                  id="dropdownMenuButton1"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Series
+                </a>
+                <ul
+                  className="dropdown-menu"
+                  aria-labelledby="dropdownMenuButton1"
+                >
+                  {series.map(({ id, series }) => (
+                    <li key={id}>
+                      <Link href={`/series/${series.slug}`}>
+                        <a className="dropdown-item">{series.name}</a>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </li>
+            <li className="nav-toggle__item">
+              <a href="#" className="nav-toggle__link">
+                Privacy Policy
+              </a>
+            </li>
+            <li className="nav-toggle__item">
+              <a href="#" className="nav-toggle__link">
+                Terms of use
+              </a>
+            </li>
           </ul>
         </div>
       </div>
       <nav className="navbar  navbar-light bg-light">
-        <div className="container">
+        <div className="container-fluid">
           <button
             className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarToggleExternalContent"
             aria-controls="navbarToggleExternalContent"
-            aria-expanded="false"
+            aria-expanded="true"
             aria-label="Toggle navigation"
           >
             <span className="navbar-toggler-icon"></span>
