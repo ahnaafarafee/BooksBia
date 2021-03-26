@@ -134,7 +134,7 @@ export default function bookDetails(props) {
               <div className="col-lg-4">
                 <div className="side-content">
                   <div className="side-content__head">
-                    <span className="side-content__v-line"></span>
+                    {/* <span className="side-content__v-line"></span> */}
                     <span className="side-content__heading">
                       Recently Added
                     </span>
