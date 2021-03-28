@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Loader from "react-loader-spinner";
 
 import Head from "next/head";
@@ -9,12 +9,13 @@ import MainContentBooks from "../../components/MainContent/MainContentBooks";
 import SideContentBooks from "../../components/MainContent/sideContentBooks";
 
 import classes from "../../styles/dynamic-pages.module.scss";
+import { NewAddedBookContext } from "../../fetchData/context/NewAddedBookContext";
 
 const db = firebase.firestore();
 
 export default function Series(props) {
   const [booksBySeries, setBooksBySeries] = useState([]);
-  const [booksNewAdded, setBooksNewAdded] = useState([]);
+  const [newBooks, setNewBooks] = useContext(NewAddedBookContext);
 
   const { series } = props;
   const seriesDesc = series.description;
@@ -27,12 +28,6 @@ export default function Series(props) {
           snapshot.docs.map((doc) => ({ id: doc.id, book: doc.data() }))
         )
       );
-
-    db.collection("books").onSnapshot((snapshot) =>
-      setBooksNewAdded(
-        snapshot.docs.map((doc) => ({ id: doc.id, book: doc.data() }))
-      )
-    );
   }, []);
 
   return (
@@ -94,8 +89,8 @@ export default function Series(props) {
                 </div>
                 <div className="side-content__main">
                   <div className="side-content__row">
-                    {booksNewAdded.length ? (
-                      booksNewAdded.map(({ id, book }, index) => {
+                    {newBooks.length ? (
+                      newBooks.map(({ id, book }, index) => {
                         if (index <= 20) {
                           return (
                             <SideContentBooks
