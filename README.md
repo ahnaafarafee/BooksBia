@@ -6,3 +6,5 @@ or use the fireship.io one!🤷‍♀️
 ### Next.js with sanity cms
 
 👉👉[Github-repo](https://github.com/vercel/next.js/tree/canary/examples/cms-sanity)
+
+### Implemented Context API
