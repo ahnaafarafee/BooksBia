@@ -3,11 +3,9 @@ import MainContent from "../components/MainContent/MainContent";
 
 export default function Home() {
   return (
-    <div>
-      <main className="container">
-        <Feature />
-        <MainContent />
-      </main>
-    </div>
+    <main className="container">
+      <Feature />
+      <MainContent />
+    </main>
   );
 }

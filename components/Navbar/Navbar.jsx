@@ -47,7 +47,7 @@ export default function Nav() {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       {/* main header */}
       <div className="collapse" id="navbarToggleExternalContent">
         <div className="nav-toggle">

@@ -6,7 +6,6 @@ import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 
 Router.onRouteChangeStart = (url) => {
-  console.log(url);
   nProgress.start();
 };
 
@@ -33,6 +32,12 @@ function Layout({ children }) {
           integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
           crossOrigin="anonymous"
         />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css"
+          integrity="sha512-42kB9yDlYiCEfx2xVwq0q7hT4uf26FUgSIZBK8uiaEnTdShXjwr8Ip1V4xGJMg3mHkUt9nNuTDxunHF0/EgxLQ=="
+          crossorigin="anonymous"
+        />
         <script
           defer
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
@@ -40,7 +45,7 @@ function Layout({ children }) {
           crossOrigin="anonymous"
         ></script>
       </Head>
-      <div className="container">
+      <div>
         <Navbar />
         {children}
         <Footer />
