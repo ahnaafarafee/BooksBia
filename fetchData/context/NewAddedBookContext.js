@@ -10,11 +10,13 @@ export const NewAddedBookProvider = (props) => {
   const [newBooks, setNewBooks] = useState([]);
 
   useEffect(() => {
-    db.collection("books").onSnapshot((snapshot) =>
-      setNewBooks(
-        snapshot.docs.map((doc) => ({ id: doc.id, book: doc.data() }))
-      )
-    );
+    db.collection("books")
+      .orderBy("authorDetails", "asc")
+      .onSnapshot((snapshot) =>
+        setNewBooks(
+          snapshot.docs.map((doc) => ({ id: doc.id, book: doc.data() }))
+        )
+      );
   }, []);
 
   return (
