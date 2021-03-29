@@ -45,7 +45,7 @@ function Layout({ children }) {
           crossOrigin="anonymous"
         ></script>
       </Head>
-      <div>
+      <div className="container">
         <Navbar />
         {children}
         <Footer />
