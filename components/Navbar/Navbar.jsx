@@ -53,7 +53,7 @@ export default function Nav() {
       <nav className="navbar  navbar-light bg-light">
         <div className="container-fluid">
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
