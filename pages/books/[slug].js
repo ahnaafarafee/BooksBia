@@ -49,11 +49,9 @@ export default function bookDetails(props) {
               <div className="preview__details">
                 <span className="preview__heading">{book.name}</span>
                 <span className="preview__heading">{book.author}</span>
-                <span className="preview__heading">File Size: 4 MB</span>
                 <span className="preview__heading">
                   Last Update: 18.11.2019
                 </span>
-                <span className="preview__heading">Rating: ⭐⭐⭐⭐⭐</span>
               </div>
             </div>
             <div className="details">
@@ -76,12 +74,8 @@ export default function bookDetails(props) {
               <a href={book.link} target="_blank" className="button-download">
                 Read Online
               </a>
-              <span>or</span>
-              <a
-                href={book.link}
-                download={`${book.name} by ${book.author} BooksBia Production`}
-                className="button-download"
-              >
+              <span> or </span>
+              <a href={book.dlink} target="_blank" className="button-download">
                 Download
               </a>
             </div>
