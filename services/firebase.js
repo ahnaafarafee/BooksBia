@@ -1,6 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/analytics";
 import "firebase/firestore";
+import "firebase/performance";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -19,6 +20,7 @@ if (!firebase.apps.length) {
     // Enable analytics. https://firebase.google.com/docs/analytics/get-started
     if ("measurementId" in firebaseConfig) {
       firebase.analytics();
+      firebase.performance();
     }
   }
 }
