@@ -22,7 +22,7 @@ export default function fallback() {
           text-align: center;
           align -items: center;
           justify-content: center;
-           max-width: 800px;
+           max-width: 1140px;
           margin: auto;
           border: 1px solid rgb(199, 197, 197);
         }
