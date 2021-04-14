@@ -28,7 +28,7 @@ export default function Genre(props) {
           snapshot.docs.map((doc) => ({ id: doc.id, book: doc.data() }))
         )
       );
-  }, [rotuer]);
+  }, [router]);
 
   return (
     <div>

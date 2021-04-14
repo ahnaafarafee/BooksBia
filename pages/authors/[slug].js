@@ -35,8 +35,6 @@ export default function Author(props) {
       );
   }, [router]);
 
-  console.log(router);
-
   return (
     <div>
       <Head>
