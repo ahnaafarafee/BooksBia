@@ -10,6 +10,7 @@ import SideContentBooks from "../../components/MainContent/sideContentBooks";
 
 import classes from "../../styles/dynamic-pages.module.scss";
 import { NewAddedBookContext } from "../../fetchData/context/NewAddedBookContext";
+import SideContentHead from "../../components/SideContentHead/SideContentHead";
 
 const db = firebase.firestore();
 
@@ -82,11 +83,7 @@ export default function Series(props) {
             </div>
             <div className="col-lg-4">
               <div className="side-content">
-                <div className="side-content__head">
-                  {/* <span className="side-content__v-line"></span> */}
-                  <span className="side-content__heading">Recently Added</span>
-                  <span className="side-content__v-line-lg"></span>
-                </div>
+                <SideContentHead />
                 <div className="side-content__main">
                   <div className="side-content__row">
                     {newBooks.length ? (
