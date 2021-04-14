@@ -8,10 +8,13 @@ import MainContentBooks from "../../components/MainContent/MainContentBooks";
 import SideContentBooks from "../../components/MainContent/sideContentBooks";
 import { NewAddedBookContext } from "../../fetchData/context/NewAddedBookContext";
 import SideContentHead from "../../components/SideContentHead/SideContentHead";
+import { useRouter } from "next/router";
 
 const db = firebase.firestore();
 
 export default function Genre(props) {
+  const router = useRouter();
+
   const [newBooks, setNewBooks] = useContext(NewAddedBookContext);
   const [booksByGenre, setBooksByGenre] = useState([]);
 
@@ -25,7 +28,7 @@ export default function Genre(props) {
           snapshot.docs.map((doc) => ({ id: doc.id, book: doc.data() }))
         )
       );
-  }, []);
+  }, [rotuer]);
 
   return (
     <div>

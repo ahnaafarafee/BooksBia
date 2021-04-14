@@ -10,10 +10,13 @@ import SideContentBooks from "../../components/MainContent/sideContentBooks";
 import TruncateString from "../../components/truncateString/truncateString";
 import { NewAddedBookContext } from "../../fetchData/context/NewAddedBookContext";
 import SideContentHead from "../../components/SideContentHead/SideContentHead";
+import { useRouter } from "next/router";
 
 const db = firebase.firestore();
 
 export default function bookDetails(props) {
+  const router = useRouter();
+
   const { book } = props;
 
   const [bookByAuthor, setBookByAuthor] = useState([]);
@@ -29,7 +32,7 @@ export default function bookDetails(props) {
           snapshot.docs.map((doc) => ({ id: doc.id, book: doc.data() }))
         )
       );
-  }, []);
+  }, [router]);
 
   return (
     <>

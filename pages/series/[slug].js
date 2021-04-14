@@ -11,10 +11,13 @@ import SideContentBooks from "../../components/MainContent/sideContentBooks";
 import classes from "../../styles/dynamic-pages.module.scss";
 import { NewAddedBookContext } from "../../fetchData/context/NewAddedBookContext";
 import SideContentHead from "../../components/SideContentHead/SideContentHead";
+import { useRouter } from "next/router";
 
 const db = firebase.firestore();
 
 export default function Series(props) {
+  const router = useRouter();
+
   const [booksBySeries, setBooksBySeries] = useState([]);
   const [newBooks, setNewBooks] = useContext(NewAddedBookContext);
 
@@ -29,7 +32,7 @@ export default function Series(props) {
           snapshot.docs.map((doc) => ({ id: doc.id, book: doc.data() }))
         )
       );
-  }, []);
+  }, [router]);
 
   return (
     <div>
