@@ -1,5 +1,8 @@
-import Head from "next/head";
 import { useContext, useEffect, useState } from "react";
+
+import { useRouter } from "next/router";
+import Head from "next/head";
+
 import Loader from "react-loader-spinner";
 
 import MainContentBooks from "../../components/MainContent/MainContentBooks";
@@ -7,13 +10,15 @@ import SideContentBooks from "../../components/MainContent/sideContentBooks";
 import TruncateString from "../../components/truncateString/truncateString";
 import firebase from "../../services/firebase";
 import { NewAddedBookContext } from "../../fetchData/context/NewAddedBookContext";
+import SideContentHead from "../../components/SideContentHead/SideContentHead";
 
 import classes from "../../styles/dynamic-pages.module.scss";
-import SideContentHead from "../../components/SideContentHead/SideContentHead";
 
 const db = firebase.firestore();
 
 export default function Author(props) {
+  const router = useRouter();
+
   const [newBooks, setNewBooks] = useContext(NewAddedBookContext);
   const [booksByAuthor, setBooksByAuthor] = useState([]);
 
@@ -28,7 +33,9 @@ export default function Author(props) {
           snapshot.docs.map((doc) => ({ id: doc.id, book: doc.data() }))
         )
       );
-  }, []);
+  }, [router]);
+
+  console.log(router);
 
   return (
     <div>
