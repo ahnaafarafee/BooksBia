@@ -18,6 +18,7 @@ export default function Blog({ blogs }) {
             {blogs.map((blog) => (
               <Col key={blog.slug} md="4">
                 <CardItem
+                  author={blog.author}
                   title={blog.title}
                   subtitle={blog.subtitle}
                   date={blog.date}
