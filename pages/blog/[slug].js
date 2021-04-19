@@ -1,7 +1,7 @@
 import { Col, Row } from "react-bootstrap";
 import BlogContent from "../../components/BlogContent/BlogContent";
 import BlogHeader from "../../components/BlogHeader/BlogHeader";
-import { getAllBlogs, getBlogBySlug } from "../../services/sanity/api";
+import { getAllBlogs, getBlogBySlug, urlFor } from "../../services/sanity/api";
 
 export default function BlogDetail({ blog }) {
   debugger;
@@ -13,7 +13,7 @@ export default function BlogDetail({ blog }) {
           <BlogHeader
             title={blog.title}
             subtitle={blog.subtitle}
-            coverImage={blog.coverImage}
+            coverImage={urlFor(blog.coverImage).height(600).url()}
             author={blog.author}
             date={blog.date}
           />

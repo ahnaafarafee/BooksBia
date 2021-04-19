@@ -1,5 +1,7 @@
 import client from "./sanity";
 
+import imageUrlBuilder from "@sanity/image-url";
+
 const blogFields = `
   title,
   subtitle,
@@ -8,6 +10,12 @@ const blogFields = `
   "author": author->{name, "image": image.asset->url},
   "coverImage": mainImage.asset->url,
 `;
+
+const builder = imageUrlBuilder(client);
+
+export function urlFor(source) {
+  return builder.image(source);
+}
 
 export async function getAllBlogs() {
   const results = await client.fetch(`*[_type == "post"]{${blogFields}}`);

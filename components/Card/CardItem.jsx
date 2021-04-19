@@ -2,6 +2,8 @@ import Link from "next/link";
 
 import { Card } from "react-bootstrap";
 
+import { urlFor } from "../../services/sanity/api";
+
 const CardItem = ({ title, subtitle, image, date, author, link }) => {
   return (
     <Card className={`fj-card`}>
@@ -23,7 +25,7 @@ const CardItem = ({ title, subtitle, image, date, author, link }) => {
         </Card.Header>
         <div className="view overlay">
           <Card.Img
-            src={image || "https://via.placeholder.com/250"}
+            src={urlFor(image).height(300).url()}
             alt="Card image cap"
           />
         </div>
