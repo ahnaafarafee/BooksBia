@@ -32,6 +32,13 @@ export default {
       name: "mainImage",
       title: "Main image",
       type: "image",
+      fields: [
+        {
+          type: "text",
+          name: "alt",
+          title: "Description",
+        },
+      ],
       options: {
         hotspot: true,
       },

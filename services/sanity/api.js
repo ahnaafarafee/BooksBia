@@ -6,7 +6,7 @@ const blogFields = `
   'slug': slug.current,
   "date": publishedAt,
   "author": author->{name, "image": image.asset->url},
-  "coverImage": mainImage.asset->url
+  "coverImage": mainImage.asset->url,
 `;
 
 export async function getAllBlogs() {
@@ -19,6 +19,7 @@ export async function getBlogBySlug(slug) {
     .fetch(
       `*[_type == "post" && slug.current == $slug] {
       ${blogFields}
+      body[]{..., "asset": asset->}
     }`,
       { slug }
     )

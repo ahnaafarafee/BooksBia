@@ -8,7 +8,6 @@ import CardListItem from "../../components/Card/CardListItem";
 import { getAllBlogs } from "../../services/sanity/api";
 
 export default function Blog({ blogs }) {
-  // debugger;
   return (
     <>
       <Head>
