@@ -1,13 +1,19 @@
 import Head from "next/head";
+import { useState } from "react";
 
 import { Container, Row, Col } from "react-bootstrap";
 
 import CardItem from "../../components/Card/CardItem";
 import CardListItem from "../../components/Card/CardListItem";
+import FilteringMenu from "../../components/FilteringMenu/FilteringMenu";
 
 import { getAllBlogs } from "../../services/sanity/api";
 
 export default function Blog({ blogs }) {
+  const [filter, setFilter] = useState({
+    view: { list: 0 },
+  });
+
   return (
     <>
       <Head>
@@ -16,25 +22,36 @@ export default function Blog({ blogs }) {
       <Container>
         <div className="blog-detail-page">
           <div className={`page-wrapper`}>
+            <FilteringMenu
+              filter={filter}
+              onChange={(option, value) => {
+                // debugger;
+                setFilter({ ...filter, [option]: value });
+              }}
+            />
+            <hr />
             <Row className="mb-5">
-              {/* <Col md="10">
-              <CardListItem />
-            </Col> */}
-              {blogs.map((blog) => (
-                <Col key={blog.slug} md="4">
-                  <CardItem
-                    author={blog.author}
-                    title={blog.title}
-                    subtitle={blog.subtitle}
-                    date={blog.date}
-                    image={blog.coverImage}
-                    link={{
-                      href: "blog/[slug]",
-                      as: `blog/${blog.slug}`,
-                    }}
-                  />
-                </Col>
-              ))}
+              {blogs.map((blog) =>
+                filter.view.list ? (
+                  <Col key={`${blog.slug}-list`} md="9">
+                    <CardListItem />
+                  </Col>
+                ) : (
+                  <Col key={blog.slug} md="4">
+                    <CardItem
+                      author={blog.author}
+                      title={blog.title}
+                      subtitle={blog.subtitle}
+                      date={blog.date}
+                      image={blog.coverImage}
+                      link={{
+                        href: "/blog/[slug]",
+                        as: `/blog/${blog.slug}`,
+                      }}
+                    />
+                  </Col>
+                )
+              )}
             </Row>
           </div>
         </div>

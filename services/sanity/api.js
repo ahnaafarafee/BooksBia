@@ -8,7 +8,7 @@ const blogFields = `
   'slug': slug.current,
   "date": publishedAt,
   "author": author->{name, "image": image.asset->url},
-  "coverImage": mainImage.asset->url,
+  "coverImage": mainImage,
 `;
 
 const builder = imageUrlBuilder(client);
