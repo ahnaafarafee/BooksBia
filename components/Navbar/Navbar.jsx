@@ -68,9 +68,7 @@ export default function Nav() {
           </button>
           <Link href="/" className="navbar-brand">
             <img
-              src={
-                LOGO_LINK || "/logo/logo.svg"
-              }
+              src={LOGO_LINK || "/logo/logo.svg"}
               className="logo"
               alt="Booksbia"
               width="120"
@@ -94,9 +92,9 @@ export default function Nav() {
           <div className="nav-toggle">
             <ul className="nav-toggle__list">
               <li className="nav-toggle__item">
-                <a href="#" className="nav-toggle__link">
-                  Blog
-                </a>
+                <Link href="/blog">
+                  <a className="nav-toggle__link">Blog</a>
+                </Link>
               </li>
               <li className="nav-toggle__item">
                 <a href="#" className="nav-toggle__link">
@@ -197,7 +195,9 @@ export default function Nav() {
         <div className="container">
           <div className="dropdown">
             <div className="drop-list">
-              <button className="cta">Blog</button>
+              <Link href="/blog">
+                <button className="cta">Blog</button>
+              </Link>
             </div>
             <div className="drop-list">
               <button className="cta">Become a Writer</button>
