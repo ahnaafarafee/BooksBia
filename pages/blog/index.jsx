@@ -2,6 +2,7 @@ import Head from "next/head";
 import { useState } from "react";
 
 import { Container, Row, Col } from "react-bootstrap";
+import { useGetBlogs } from "../../actions";
 
 import CardItem from "../../components/Card/CardItem";
 import CardListItem from "../../components/Card/CardListItem";
@@ -9,10 +10,12 @@ import FilteringMenu from "../../components/FilteringMenu/FilteringMenu";
 
 import { getAllBlogs } from "../../services/sanity/api";
 
-export default function Blog({ blogs }) {
+export default function Blog({ blogs: initialData }) {
   const [filter, setFilter] = useState({
     view: { list: 0 },
   });
+
+  const { data: blogs, error } = useGetBlogs(initialData);
 
   return (
     <>
@@ -70,7 +73,7 @@ export default function Blog({ blogs }) {
 }
 
 export async function getStaticProps() {
-  const blogs = await getAllBlogs();
+  const blogs = await getAllBlogs({ offset: 0 });
   return {
     props: {
       blogs,
