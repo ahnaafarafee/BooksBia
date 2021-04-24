@@ -40,7 +40,7 @@ export default function Blog({ blogs }) {
                       author={blog.author}
                       title={blog.title}
                       subtitle={blog.subtitle}
-                      date={moment(blog.date).format('LLL')}
+                      date={moment(blog.date).format("LLL")}
                       link={{
                         href: "/blog/[slug]",
                         as: `/blog/${blog.slug}`,
@@ -53,7 +53,7 @@ export default function Blog({ blogs }) {
                       author={blog.author}
                       title={blog.title}
                       subtitle={blog.subtitle}
-                      date={moment(blog.date).format('LLL')}
+                      date={moment(blog.date).format("LLL")}
                       image={blog.coverImage}
                       link={{
                         href: "/blog/[slug]",
@@ -77,5 +77,6 @@ export async function getStaticProps() {
     props: {
       blogs,
     },
+    revalidate: 60,
   };
 }
