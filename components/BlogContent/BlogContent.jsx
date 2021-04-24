@@ -7,7 +7,7 @@ const serializers = {
     image: ({ node: { asset, alt } }) => {
       return (
         <div className="blog-image">
-          <img src={urlFor(asset).height(300).fit("max").url()} />
+          <img src={urlFor(asset).height(240).url()} />
           <div className="image-alt">{alt}</div>
         </div>
       );
@@ -18,7 +18,12 @@ const serializers = {
 export default function BlogContent({ content }) {
   return (
     <>
-      <BlockContent serializers={serializers} blocks={content} />
+      <BlockContent
+  
+        serializers={serializers}
+        blocks={content}
+      />
+     
     </>
   );
 }

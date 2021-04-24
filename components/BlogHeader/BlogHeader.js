@@ -6,28 +6,62 @@ export default function BlogHeader({
   author,
 }) {
   return (
-    <div className="blog-detail-header">
-      <p className="lead mb-0">
+    <>
+      <div className="blog-detail-header">
+        <h1 className="title">{title}</h1>
+        <h2 className="subtitle">{subtitle}</h2>
+        <p className="lead mb-0">
+          <img
+            src={author?.image}
+            className="rounded-circle mr-3"
+            height="70px"
+            width="70px"
+            alt={author?.name}
+          />
+          <span className="author-name">
+            {author?.name}
+            {", "}
+          </span>
+          <em className="date">{date}</em>
+        </p>
         <img
-          src={author?.image}
-          className="rounded-circle mr-3"
-          height="50px"
-          width="50px"
-          alt="avatar"
+          className="img-fluid rounded img-cover"
+          src={coverImage}
+          alt="image"
         />
-        {author?.name}
-        {", "} {date}
-      </p>
-      <h1 className="font-weight-bold blog-detail-header-title mb-0">
-        {title}
-      </h1>
-      <h2 className="blog-detail-header-subtitle mb-3">{subtitle}</h2>
-      {/* Check if contains cover image */}
-      <img
-        className="img-fluid rounded"
-        src={coverImage}
-        alt="TODO: provide alt"
-      />
-    </div>
+      </div>
+      <style jsx>
+        {`
+          .author-name {
+            font-weight: 700;
+            fontsize: 14px;
+          }
+
+          .date {
+            font-size: 10px;
+            text-transform: uppercase;
+            color: gray;
+          }
+
+          .title {
+            text-align: center !important;
+            align-items: center;
+            margin-top: 15px;
+            font-weight: 700;
+            font-size: 30px;
+          }
+          .subtitle {
+            text-align: center !important;
+            align-items: center;
+            color: gray;
+            font-size: 12px;
+          }
+          .img-cover{
+            text-align: center;
+            align-items: center;
+          }
+        `}
+      </style>
+    </>
   );
 }

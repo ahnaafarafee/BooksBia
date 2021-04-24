@@ -8,8 +8,6 @@ import { getAllBlogs, getBlogBySlug, urlFor } from "../../services/sanity/api";
 import moment from "moment";
 
 export default function BlogDetail({ blog }) {
-  debugger;
-
   return (
     <>
       <Head>
@@ -21,7 +19,7 @@ export default function BlogDetail({ blog }) {
             <BlogHeader
               title={blog.title}
               subtitle={blog.subtitle}
-              coverImage={urlFor(blog.coverImage).height(600).url()}
+              coverImage={urlFor(blog.coverImage).height(400).url()}
               author={blog.author}
               date={moment(blog.date).format("LLL")}
             />
