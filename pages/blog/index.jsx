@@ -9,6 +9,8 @@ import FilteringMenu from "../../components/FilteringMenu/FilteringMenu";
 
 import { getAllBlogs } from "../../services/sanity/api";
 
+import moment from "moment";
+
 export default function Blog({ blogs }) {
   const [filter, setFilter] = useState({
     view: { list: 0 },
@@ -38,7 +40,7 @@ export default function Blog({ blogs }) {
                       author={blog.author}
                       title={blog.title}
                       subtitle={blog.subtitle}
-                      date={blog.date}
+                      date={moment(blog.date).format('LLL')}
                       link={{
                         href: "/blog/[slug]",
                         as: `/blog/${blog.slug}`,
@@ -51,7 +53,7 @@ export default function Blog({ blogs }) {
                       author={blog.author}
                       title={blog.title}
                       subtitle={blog.subtitle}
-                      date={blog.date}
+                      date={moment(blog.date).format('LLL')}
                       image={blog.coverImage}
                       link={{
                         href: "/blog/[slug]",

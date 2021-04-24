@@ -5,6 +5,8 @@ import BlogContent from "../../components/BlogContent/BlogContent";
 import BlogHeader from "../../components/BlogHeader/BlogHeader";
 import { getAllBlogs, getBlogBySlug, urlFor } from "../../services/sanity/api";
 
+import moment from "moment";
+
 export default function BlogDetail({ blog }) {
   debugger;
 
@@ -21,7 +23,7 @@ export default function BlogDetail({ blog }) {
               subtitle={blog.subtitle}
               coverImage={urlFor(blog.coverImage).height(600).url()}
               author={blog.author}
-              date={blog.date}
+              date={moment(blog.date).format("LLL")}
             />
             <hr />
             <BlogContent content={blog.body} />

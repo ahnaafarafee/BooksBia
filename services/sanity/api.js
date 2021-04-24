@@ -18,7 +18,9 @@ export function urlFor(source) {
 }
 
 export async function getAllBlogs() {
-  const results = await client.fetch(`*[_type == "post"]{${blogFields}}`);
+  const results = await client.fetch(
+    `*[_type == "post"] | order(_createdAt desc) {${blogFields}}`
+  );
   return results;
 }
 
