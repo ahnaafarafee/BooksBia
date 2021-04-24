@@ -162,6 +162,7 @@ export const getStaticProps = async (context) => {
       props: {
         book: book[0],
       },
+      revalidate: 60,
     };
   } else {
     return {
@@ -182,6 +183,6 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   };
 }

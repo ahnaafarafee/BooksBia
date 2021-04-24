@@ -133,6 +133,7 @@ export const getStaticProps = async (context) => {
       props: {
         series: series[0],
       },
+      revalidate: 60,
     };
   } else {
     return {
@@ -153,6 +154,6 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   };
 }
