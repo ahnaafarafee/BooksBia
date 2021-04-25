@@ -11,7 +11,7 @@ export const NewAddedBookProvider = (props) => {
 
   useEffect(() => {
     db.collection("books")
-      .orderBy("authorDetails", "asc")
+      .orderBy("createdAt", "desc")
       .onSnapshot((snapshot) =>
         setNewBooks(
           snapshot.docs.map((doc) => ({ id: doc.id, book: doc.data() }))

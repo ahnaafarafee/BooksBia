@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 
+import Link from "next/link";
+
 export default function Feature({ isInSlug }) {
   const undraggable = () => {
     document.getElementById("img").draggable = false;
@@ -21,12 +23,12 @@ export default function Feature({ isInSlug }) {
                   Or Do You Want To Be A Writer?
                 </h3>
                 <div className="feature__button">
-                  <a href="#" className="cta cta-feature">
-                    Write Blog
-                  </a>
-                  <a href="#" className="cta cta-feature">
-                    Read Blog
-                  </a>
+                  <Link href="/blog">
+                    <a className="cta cta-feature">Write Blog</a>
+                  </Link>
+                  <Link href="/blog">
+                    <a className="cta cta-feature">Read Blog</a>
+                  </Link>
                 </div>
               </div>
             </div>

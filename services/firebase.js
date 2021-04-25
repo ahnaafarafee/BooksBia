@@ -26,3 +26,12 @@ if (!firebase.apps.length) {
 }
 
 export default firebase;
+
+export function toJSON(doc) {
+  const data = doc.data();
+  return {
+    ...data,
+    // Gotcha! firestore timestamp NOT serializable to JSON. Must convert to milliseconds
+    createdAt: data?.createdAt.toMillis() || 0,
+  };
+}

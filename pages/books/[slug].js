@@ -3,21 +3,27 @@ import Loader from "react-loader-spinner";
 import Head from "next/head";
 
 import firebase from "../../services/firebase";
+import { toJSON } from "../../services/firebase";
 
 import Feature from "../../components/Feature/Feature";
 import MainContentBooks from "../../components/MainContent/MainContentBooks";
-import SideContentBooks from "../../components/MainContent/sideContentBooks";
 import TruncateString from "../../components/truncateString/truncateString";
 import { NewAddedBookContext } from "../../fetchData/context/NewAddedBookContext";
-import SideContentHead from "../../components/SideContentHead/SideContentHead";
 import { useRouter } from "next/router";
+
+import moment from "moment";
+import SideContent from "../../components/MainContent/SideContent";
 
 const db = firebase.firestore();
 
 export default function bookDetails(props) {
-  const router = useRouter();
-
   const { book } = props;
+
+  const dateCreated = book.createdAt;
+
+  const date = moment(dateCreated).format("LL");
+
+  const router = useRouter();
 
   const [bookByAuthor, setBookByAuthor] = useState([]);
   const [newBooks, setNewBooks] = useContext(NewAddedBookContext);
@@ -53,9 +59,7 @@ export default function bookDetails(props) {
               <div className="preview__details">
                 <span className="preview__heading">{book.name}</span>
                 <span className="preview__heading">{book.author}</span>
-                <span className="preview__heading">
-                  Last Update: 18.11.2019
-                </span>
+                <span className="preview__heading">Last Update: {date}</span>
               </div>
             </div>
             <div className="details">
@@ -66,9 +70,7 @@ export default function bookDetails(props) {
                 <p className="details__main">{book.bookDetails}</p>
               </div>
               <div className="details__author">
-                <h2 className="details__heading">
-                  Some Words about the Writer
-                </h2>
+                <h2 className="details__heading">About {book.author}</h2>
                 <div className="details__main">
                   <TruncateString authorDesc={authorDesc} max={800} />
                 </div>
@@ -115,37 +117,7 @@ export default function bookDetails(props) {
             </div>
           </div>
           <div className="col-lg-4">
-            <div className="side-content">
-              <SideContentHead />
-              <div className="side-content__main">
-                <div className="side-content__row">
-                  {newBooks.length ? (
-                    newBooks.map(({ id, book }, index) => {
-                      if (index <= 20) {
-                        return (
-                          <SideContentBooks
-                            key={id}
-                            imageUrl={book?.imageUrl}
-                            name={book?.name}
-                            author={book?.author}
-                            slug={book?.slug}
-                          />
-                        );
-                      }
-                    })
-                  ) : (
-                    <div style={{ textAlign: "center" }}>
-                      <Loader
-                        type="ThreeDots"
-                        color="#101d2c"
-                        height={50}
-                        width={50}
-                      />
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
+            <SideContent />
           </div>
         </div>
       </main>
@@ -156,7 +128,7 @@ export default function bookDetails(props) {
 export const getStaticProps = async (context) => {
   const { slug } = context.params;
   const res = await db.collection("books").where("slug", "==", slug).get();
-  const book = res.docs.map((book) => book.data());
+  const book = res.docs.map((book) => toJSON(book));
   if (book.length) {
     return {
       props: {
