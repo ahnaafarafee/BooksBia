@@ -2,11 +2,10 @@ import { useContext, useEffect, useState } from "react";
 import Loader from "react-loader-spinner";
 
 import MainContentBooks from "./MainContentBooks";
-import SideContentBooks from "./sideContentBooks";
 
 import firebase from "../../services/firebase";
 import { NewAddedBookContext } from "../../fetchData/context/NewAddedBookContext";
-import SideContentHead from "../SideContentHead/SideContentHead";
+import SideContent from "./SideContent";
 
 const db = firebase.firestore();
 
@@ -64,37 +63,7 @@ export default function MainContent() {
               </div>
             </div>
             <div className="col-lg-4">
-              <div className="side-content">
-                <SideContentHead />
-                <div className="side-content__main">
-                  <div className="side-content__row">
-                    {newBooks.length ? (
-                      newBooks.map(({ id, book }, index) => {
-                        if (index <= 20) {
-                          return (
-                            <SideContentBooks
-                              key={id}
-                              imageUrl={book?.imageUrl}
-                              name={book?.name}
-                              author={book?.author}
-                              slug={book?.slug}
-                            />
-                          );
-                        }
-                      })
-                    ) : (
-                      <div style={{ textAlign: "center" }}>
-                        <Loader
-                          type="ThreeDots"
-                          color="#101d2c"
-                          height={50}
-                          width={50}
-                        />
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
+              <SideContent />
             </div>
           </div>
         </div>

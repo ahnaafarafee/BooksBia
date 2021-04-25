@@ -1,9 +1,14 @@
 import Link from "next/link";
 
-function SideContentBooks({ imageUrl, name, author, slug }) {
-  // const dateCreated = added.toDate();
-  // const date = dateCreated.toDateString();
-  // const slug = name.replace(/\s/g, "-").toLowerCase();
+import moment from "moment";
+
+function SideContentBooks({ imageUrl, name, author, slug, createdAt }) {
+  // debugger;
+  const dateCreated = createdAt;
+
+  const date = moment(dateCreated).format("LL");
+
+  console.log(name);
 
   return (
     <div>
@@ -15,10 +20,10 @@ function SideContentBooks({ imageUrl, name, author, slug }) {
               <span className="side-content__heading-side">
                 <h4 className="side-content__heading--sub">{name}</h4>
                 <h4 className="side-content__heading--sub">{author}</h4>
+                <h3 className="side-content__heading--sub">uploaded: {date}</h3>
                 {/* <h3 className="side-content__heading--sub">
-                  uploaded: <span>{date}</span>
+                  File Size: 1.2 Mb
                 </h3> */}
-                {/* <h3 className="side-content__heading--sub">File Size: 1.2 Mb</h3> */}
                 {/* <h3 className="side-content__heading--sub">Rating: ⭐⭐⭐</h3> */}
               </span>
             </div>
