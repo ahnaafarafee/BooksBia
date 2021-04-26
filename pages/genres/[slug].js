@@ -1,11 +1,10 @@
-import { useContext, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import Loader from "react-loader-spinner";
 
 import Head from "next/head";
 
 import firebase from "../../services/firebase";
 import MainContentBooks from "../../components/MainContent/MainContentBooks";
-import { NewAddedBookContext } from "../../fetchData/context/NewAddedBookContext";
 import { useRouter } from "next/router";
 import SideContent from "../../components/MainContent/SideContent";
 
@@ -14,7 +13,6 @@ const db = firebase.firestore();
 export default function Genre(props) {
   const router = useRouter();
 
-  const [newBooks, setNewBooks] = useContext(NewAddedBookContext);
   const [booksByGenre, setBooksByGenre] = useState([]);
 
   const { genre } = props;

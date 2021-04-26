@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import Loader from "react-loader-spinner";
 
 import Head from "next/head";
@@ -8,7 +8,6 @@ import TruncateString from "../../components/truncateString/truncateString";
 import MainContentBooks from "../../components/MainContent/MainContentBooks";
 
 import classes from "../../styles/dynamic-pages.module.scss";
-import { NewAddedBookContext } from "../../fetchData/context/NewAddedBookContext";
 import { useRouter } from "next/router";
 import SideContent from "../../components/MainContent/SideContent";
 
@@ -18,7 +17,6 @@ export default function Series(props) {
   const router = useRouter();
 
   const [booksBySeries, setBooksBySeries] = useState([]);
-  const [newBooks, setNewBooks] = useContext(NewAddedBookContext);
 
   const { series } = props;
   const seriesDesc = series.description;

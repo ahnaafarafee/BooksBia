@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useRouter } from "next/router";
 import Head from "next/head";
@@ -8,7 +8,6 @@ import Loader from "react-loader-spinner";
 import MainContentBooks from "../../components/MainContent/MainContentBooks";
 import TruncateString from "../../components/truncateString/truncateString";
 import firebase from "../../services/firebase";
-import { NewAddedBookContext } from "../../fetchData/context/NewAddedBookContext";
 
 import classes from "../../styles/dynamic-pages.module.scss";
 import SideContent from "../../components/MainContent/SideContent";
@@ -18,7 +17,6 @@ const db = firebase.firestore();
 export default function Author(props) {
   const router = useRouter();
 
-  const [newBooks, setNewBooks] = useContext(NewAddedBookContext);
   const [booksByAuthor, setBooksByAuthor] = useState([]);
 
   const { author } = props;
@@ -85,7 +83,7 @@ export default function Author(props) {
               </div>
             </div>
             <div className="col-lg-4">
-              <SideContent/>
+              <SideContent />
             </div>
           </div>
         </div>

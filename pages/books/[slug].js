@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Loader from "react-loader-spinner";
 import Head from "next/head";
 
@@ -8,7 +8,6 @@ import { toJSON } from "../../services/firebase";
 import Feature from "../../components/Feature/Feature";
 import MainContentBooks from "../../components/MainContent/MainContentBooks";
 import TruncateString from "../../components/truncateString/truncateString";
-import { NewAddedBookContext } from "../../fetchData/context/NewAddedBookContext";
 import { useRouter } from "next/router";
 
 import moment from "moment";
@@ -26,7 +25,6 @@ export default function bookDetails(props) {
   const router = useRouter();
 
   const [bookByAuthor, setBookByAuthor] = useState([]);
-  const [newBooks, setNewBooks] = useContext(NewAddedBookContext);
 
   const authorDesc = book.authorDetails;
 
