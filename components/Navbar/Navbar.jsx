@@ -75,18 +75,6 @@ export default function Nav() {
               height="120"
             />
           </Link>
-          <form className="d-flex">
-            <div className="header__search-box">
-              <input
-                type="text"
-                className="header__search"
-                placeholder="type in english"
-              />
-              <a href="#" className="cta cta--src">
-                <i className="fas fa-search"></i>
-              </a>
-            </div>
-          </form>
         </div>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <div className="nav-toggle">

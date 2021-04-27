@@ -263,8 +263,8 @@ main {
       outline: none;
     }
 
-    @include respond(tab-land) {
-      display: none;
+    @include respond(phone) {
+      width: 100% !important;
     }
   }
 }
@@ -977,4 +977,13 @@ main {
   font-size: 2rem;
   text-align: justify;
   padding: 1.5rem;
+}
+
+.fil-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.fil-book {
+  margin: 1rem;
 }
