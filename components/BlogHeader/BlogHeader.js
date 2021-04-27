@@ -56,9 +56,10 @@ export default function BlogHeader({
             color: gray;
             font-size: 12px;
           }
-          .img-cover{
-            text-align: center;
-            align-items: center;
+          .img-cover {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
           }
         `}
       </style>

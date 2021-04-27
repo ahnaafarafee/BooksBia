@@ -1,4 +1,4 @@
-export default function Input({ handleChange, handleClear }) {
+export default function Input({ handleChange, handleClear, isDisabled }) {
   return (
     <>
       <div className="input-container">
@@ -10,9 +10,13 @@ export default function Input({ handleChange, handleClear }) {
               placeholder="search books"
               onChange={handleChange}
             />
-            <a className="cta cta--src" onClick={handleClear}>
+            <button
+              className="cta cta--src"
+              onClick={handleClear}
+              disabled={isDisabled}
+            >
               <i className="fas fa-times-circle fa-2x"></i>
-            </a>
+            </button>
           </div>
         </form>
       </div>

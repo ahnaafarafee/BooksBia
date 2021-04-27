@@ -24,6 +24,7 @@ export default function Home() {
         <Input
           handleChange={(event) => setSearchItem(event.target.value)}
           handleClear={() => setSearchItem("")}
+          isDisabled={searchItem == ""}
         />
 
         <motion.div className={searchItem == "" ? "" : "fil-container"} layout>
