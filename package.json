@@ -16,6 +16,7 @@
     "@sanity/image-url": "^0.140.22",
     "bootstrap": "^4.6.0",
     "firebase": "^8.2.7",
+    "framer-motion": "^4.1.10",
     "moment": "^2.29.1",
     "next": "10.0.6",
     "next-pwa": "^5.1.3",

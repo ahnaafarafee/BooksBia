@@ -7,6 +7,8 @@ import MainContent from "../components/MainContent/MainContent";
 
 import { NewAddedBookContext } from "../fetchData/context/NewAddedBookContext";
 
+import { motion } from "framer-motion";
+
 export default function Home() {
   const [newBooks, setNewBooks] = useContext(NewAddedBookContext);
   const [searchItem, setSearchItem] = useState("");
@@ -24,7 +26,7 @@ export default function Home() {
           handleClear={() => setSearchItem("")}
         />
 
-        <div className={searchItem == "" ? "" : "fil-container"}>
+        <motion.div className={searchItem == "" ? "" : "fil-container"} layout>
           {searchItem == "" ? (
             <MainContent />
           ) : (
@@ -38,7 +40,7 @@ export default function Home() {
               />
             ))
           )}
-        </div>
+        </motion.div>
       </main>
     </div>
   );
