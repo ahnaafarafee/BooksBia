@@ -1,17 +1,14 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Loader from "react-loader-spinner";
 
 import MainContentBooks from "./MainContentBooks";
 
 import firebase from "../../services/firebase";
-import { NewAddedBookContext } from "../../fetchData/context/NewAddedBookContext";
 import SideContent from "./SideContent";
 
 const db = firebase.firestore();
 
 export default function MainContent() {
-  const [newBooks, setNewBooks] = useContext(NewAddedBookContext);
-
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
