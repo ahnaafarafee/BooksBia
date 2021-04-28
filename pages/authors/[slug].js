@@ -11,6 +11,7 @@ import firebase from "../../services/firebase";
 
 import classes from "../../styles/dynamic-pages.module.scss";
 import SideContent from "../../components/MainContent/SideContent";
+import SocialShare from "../../components/SocialShare/SocialShare";
 
 const db = firebase.firestore();
 
@@ -18,6 +19,7 @@ export default function Author(props) {
   const router = useRouter();
 
   const [booksByAuthor, setBooksByAuthor] = useState([]);
+  const [currentUrl, setCurrentUrl] = useState("");
 
   const { author } = props;
   const authorDesc = author.about;
@@ -30,6 +32,8 @@ export default function Author(props) {
           snapshot.docs.map((doc) => ({ id: doc.id, book: doc.data() }))
         )
       );
+
+    setCurrentUrl(window.location.href);
   }, [router]);
 
   return (
@@ -49,6 +53,13 @@ export default function Author(props) {
                 />
                 <span className={classes.header}>{author.name}</span>
               </div>
+              {/* react share buttons */}
+              <SocialShare
+                url={String(currentUrl)}
+                title={author.name}
+                size="2.5rem"
+                shareImage={author.photoUrl}
+              />
               <div className={classes.description}>
                 <TruncateString authorDesc={authorDesc} max={800} />
               </div>

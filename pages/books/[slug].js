@@ -12,19 +12,20 @@ import { useRouter } from "next/router";
 
 import moment from "moment";
 import SideContent from "../../components/MainContent/SideContent";
+import SocialShare from "../../components/SocialShare/SocialShare";
 
 const db = firebase.firestore();
 
 export default function bookDetails(props) {
   const { book } = props;
+  const router = useRouter();
+
+  const [bookByAuthor, setBookByAuthor] = useState([]);
+  const [currentUrl, setCurrentUrl] = useState("");
 
   const dateCreated = book.createdAt;
 
   const date = moment(dateCreated).format("LL");
-
-  const router = useRouter();
-
-  const [bookByAuthor, setBookByAuthor] = useState([]);
 
   const authorDesc = book.authorDetails;
 
@@ -36,7 +37,10 @@ export default function bookDetails(props) {
           snapshot.docs.map((doc) => ({ id: doc.id, book: doc.data() }))
         )
       );
+
+    setCurrentUrl(window.location.href);
   }, [router]);
+
 
   return (
     <>
@@ -60,6 +64,13 @@ export default function bookDetails(props) {
                 <span className="preview__heading">Last Update: {date}</span>
               </div>
             </div>
+            {/* react share buttons */}
+            <SocialShare
+              url={String(currentUrl)}
+              title={book.name}
+              size="2.5rem"
+              shareImage={book.imageUrl}
+            />
             <div className="details">
               <div className="details__book">
                 <h2 className="details__heading">

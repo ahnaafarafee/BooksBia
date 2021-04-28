@@ -1,13 +1,21 @@
+import { useEffect, useState } from "react";
 import Head from "next/head";
+
+import moment from "moment";
 
 import { Col, Row } from "react-bootstrap";
 import BlogContent from "../../components/BlogContent/BlogContent";
 import BlogHeader from "../../components/BlogHeader/BlogHeader";
 import { getAllBlogs, getBlogBySlug, urlFor } from "../../services/sanity/api";
-
-import moment from "moment";
+import SocialShare from "../../components/SocialShare/SocialShare";
 
 export default function BlogDetail({ blog }) {
+  const [currentUrl, setCurrentUrl] = useState("");
+
+  useEffect(() => {
+    setCurrentUrl(window.location.href);
+  }, []);
+
   return (
     <>
       <Head>
@@ -24,6 +32,13 @@ export default function BlogDetail({ blog }) {
               date={moment(blog.date).format("LLL")}
             />
             <hr />
+            {/* react share buttons */}
+            <SocialShare
+              url={String(currentUrl)}
+              title={blog.title}
+              size="2.5rem"
+              shareImage={urlFor(blog.coverImage).url()}
+            />
             <BlogContent content={blog.body} />
           </Col>
         </Row>
