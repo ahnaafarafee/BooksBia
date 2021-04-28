@@ -1,7 +1,5 @@
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Loader from "react-loader-spinner";
-
-import Head from "next/head";
 
 import firebase from "../../services/firebase";
 import TruncateString from "../../components/truncateString/truncateString";
@@ -10,6 +8,8 @@ import MainContentBooks from "../../components/MainContent/MainContentBooks";
 import classes from "../../styles/dynamic-pages.module.scss";
 import { useRouter } from "next/router";
 import SideContent from "../../components/MainContent/SideContent";
+
+import MetaTags from "../../components/MetaTags/MetaTags";
 
 const db = firebase.firestore();
 
@@ -33,9 +33,11 @@ export default function Series(props) {
 
   return (
     <div>
-      <Head>
-        <title>{series.name} | BooksBia</title>
-      </Head>
+      <MetaTags
+        title={`${series.name} | BooksBia`}
+        description={`Download or Read online all books of ${series.name} for free in PDF format.`}
+        image={series.photoUrl}
+      />
       <main>
         <div className="container">
           <div className="row">

@@ -8,6 +8,7 @@ import BlogContent from "../../components/BlogContent/BlogContent";
 import BlogHeader from "../../components/BlogHeader/BlogHeader";
 import { getAllBlogs, getBlogBySlug, urlFor } from "../../services/sanity/api";
 import SocialShare from "../../components/SocialShare/SocialShare";
+import MetaTags from "../../components/MetaTags/MetaTags";
 
 export default function BlogDetail({ blog }) {
   const [currentUrl, setCurrentUrl] = useState("");
@@ -18,9 +19,11 @@ export default function BlogDetail({ blog }) {
 
   return (
     <>
-      <Head>
-        <title>{`${blog.title} | Booksbia Blog`}</title>
-      </Head>
+      <MetaTags
+        title={`${blog.title} | Booksbia Blog`}
+        description={`Read awesome blog post ${blog.title} by ${blog.author}`}
+        image={urlFor(blog.coverImage).url()}
+      />
       <div className="blog-detail-page">
         <Row>
           <Col md={{ span: 10, offset: 1 }}>

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Loader from "react-loader-spinner";
-import Head from "next/head";
 
 import firebase from "../../services/firebase";
 import { toJSON } from "../../services/firebase";
@@ -13,6 +12,7 @@ import { useRouter } from "next/router";
 import moment from "moment";
 import SideContent from "../../components/MainContent/SideContent";
 import SocialShare from "../../components/SocialShare/SocialShare";
+import MetaTags from "../../components/MetaTags/MetaTags";
 
 const db = firebase.firestore();
 
@@ -41,12 +41,13 @@ export default function bookDetails(props) {
     setCurrentUrl(window.location.href);
   }, [router]);
 
-
   return (
     <>
-      <Head>
-        <title>{`${book.name} by ${book.author} | BooksBia`}</title>
-      </Head>
+      <MetaTags
+        title={`${book.name} by ${book.author} | BooksBia`}
+        description={`Download or Read online ${book.name} by ${book.author} for free in PDF format.`}
+        image={book.imageUrl}
+      />
       <main className="container">
         <div className="row">
           <div className="col-lg-8">

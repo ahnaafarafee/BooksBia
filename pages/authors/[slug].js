@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
 import { useRouter } from "next/router";
-import Head from "next/head";
 
 import Loader from "react-loader-spinner";
 
@@ -12,6 +11,7 @@ import firebase from "../../services/firebase";
 import classes from "../../styles/dynamic-pages.module.scss";
 import SideContent from "../../components/MainContent/SideContent";
 import SocialShare from "../../components/SocialShare/SocialShare";
+import MetaTags from "../../components/MetaTags/MetaTags";
 
 const db = firebase.firestore();
 
@@ -38,9 +38,11 @@ export default function Author(props) {
 
   return (
     <div>
-      <Head>
-        <title>{author.name} | BooksBia</title>
-      </Head>
+      <MetaTags
+        title={`${author.name} | BooksBia`}
+        description={`Download or Read online all books by ${author.name} for free in PDF format.`}
+        image={author.photoUrl}
+      />
       <main>
         <div className="container">
           <div className="row">

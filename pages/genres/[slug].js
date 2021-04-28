@@ -1,12 +1,11 @@
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Loader from "react-loader-spinner";
-
-import Head from "next/head";
 
 import firebase from "../../services/firebase";
 import MainContentBooks from "../../components/MainContent/MainContentBooks";
 import { useRouter } from "next/router";
 import SideContent from "../../components/MainContent/SideContent";
+import MetaTags from "../../components/MetaTags/MetaTags";
 
 const db = firebase.firestore();
 
@@ -29,9 +28,11 @@ export default function Genre(props) {
 
   return (
     <div>
-      <Head>
-        <title>{genre.name} | BooksBia</title>
-      </Head>
+      <MetaTags
+        title={`${genre.name} | BooksBia`}
+        description={`Download or Read online all books of ${genre.name} genre for free in PDF format.`}
+        image="https://i.ibb.co/dBzFpCD/booksbia.png"
+      />
       <main>
         <div className="container">
           <div className="row">
