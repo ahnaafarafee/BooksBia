@@ -10,6 +10,7 @@ import FilteringMenu from "../../components/FilteringMenu/FilteringMenu";
 import { getAllBlogs } from "../../services/sanity/api";
 
 import moment from "moment";
+import MetaTags from "../../components/MetaTags/MetaTags";
 
 export default function Blog({ blogs }) {
   const [filter, setFilter] = useState({
@@ -18,9 +19,11 @@ export default function Blog({ blogs }) {
 
   return (
     <>
-      <Head>
-        <title>Booksbia Blog</title>
-      </Head>
+      <MetaTags
+        title={`Blog | BooksBia`}
+        description={`Read awesome blog posts by renowned authors daily!`}
+        image="https://i.ibb.co/dBzFpCD/booksbia.png"
+      />
       <Container>
         <div className="blog-detail-page">
           <div className={`page-wrapper`}>
