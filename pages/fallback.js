@@ -7,11 +7,12 @@ export default function fallback() {
         <title>BooksBia | Download and Read Ebooks For Free</title>
       </Head>
       <div className="main-page">
-        <h1>Seems you're offline!</h1>
-        <h2>
+        <h1 style={{ color: "red" }}>Network Error</h1>
+        <h2>Seems you're offline!</h2>
+        <h3>
           Please make sure your internet connection is okay to Download and Read
           Ebooks For Free
-        </h2>
+        </h3>
       </div>
       <style jsx>{`
         .main-page{
