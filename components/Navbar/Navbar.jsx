@@ -165,14 +165,19 @@ export default function Nav() {
                 </div>
               </li>
               <li className="nav-toggle__item">
-                <a href="#" className="nav-toggle__link">
-                  Privacy Policy
-                </a>
+                <Link href="/privacy-policy">
+                  <a className="nav-toggle__link">Privacy Policy</a>
+                </Link>
               </li>
               <li className="nav-toggle__item">
-                <a href="#" className="nav-toggle__link">
-                  Terms of use
-                </a>
+                <Link href="/terms-and-conditions">
+                  <a className="nav-toggle__link">Terms And Conditions</a>
+                </Link>
+              </li>
+              <li className="nav-toggle__item">
+                <Link href="/copyright">
+                  <a className="nav-toggle__link">Copyright Issue</a>
+                </Link>
               </li>
             </ul>
           </div>

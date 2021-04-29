@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const LOGO_LINK =
   "https://firebasestorage.googleapis.com/v0/b/booksiba-28d4a.appspot.com/o/logo.svg?alt=media&token=17ac9b41-d2a8-4b8f-a774-96432659365b";
 
@@ -33,19 +35,19 @@ function Footer() {
                       </a>
                     </li>
                     <li className="footer__item">
-                      <a href="#" className="footer__link">
-                        Donate
-                      </a>
+                      <Link href="/copyright">
+                        <a className="footer__link">Copyright Issue</a>
+                      </Link>
                     </li>
                     <li className="footer__item">
-                      <a href="#" className="footer__link">
-                        Privacy Policy
-                      </a>
+                      <Link href="/privacy-policy">
+                        <a className="footer__link">Privacy Policy</a>
+                      </Link>
                     </li>
                     <li className="footer__item">
-                      <a href="#" className="footer__link">
-                        Terms of Use
-                      </a>
+                      <Link href="/terms-and-conditions">
+                        <a className="footer__link">Terms And Conditions</a>
+                      </Link>
                     </li>
                   </ul>
                   <div className="footer__follow-section">
@@ -70,10 +72,17 @@ function Footer() {
             </div>
             <div className="col-md-4 offset-md-4">
               <p className="footer__description">
-                BooksBia is a online Bengali books reading library. You can
-                download all Bangla books in pdf. We've got a large Bengali
-                ebook collection for all of you. Visit our site regularly to
-                download your desire Bangla PDF Books.
+                BooksBia is a free online E-book library. We respect copyright
+                issues. We have collected PDFs and links from the internet. We
+                do not want any harm to copyright holders, we respect their hard
+                work. We just want to make sure that those who can not afford to
+                buy books can read their desired books for free. IF YOU CAN
+                AFFORD TO BUY THESE BOOKS, PLEASE DO NOT DOWNLOAD EBOOKS FROM
+                OUR SITE. If you are the author/publisher/copyright holder of
+                any of these books published on our website, and you want to
+                take down our books please inform us at{" "}
+                <strong>booksbiaeditor@gmail.com</strong>, We would immediately
+                remove your copyrighted materials from our site.
               </p>
             </div>
           </div>
