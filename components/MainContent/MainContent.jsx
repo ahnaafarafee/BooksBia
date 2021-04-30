@@ -34,7 +34,7 @@ export default function MainContent() {
                 <div className="content__row">
                   {books.length ? (
                     books.map(({ book, id }, index) => {
-                      if (index <= 10) {
+                      if (index <= 20) {
                         return (
                           <MainContentBooks
                             key={id}

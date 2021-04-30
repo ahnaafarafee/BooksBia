@@ -109,18 +109,12 @@ export const getStaticProps = async (context) => {
   const { slug } = context.params;
   const res = await db.collection("authors").where("slug", "==", slug).get();
   const author = res.docs.map((author) => author.data());
-  if (author.length) {
-    return {
-      props: {
-        author: author[0],
-      },
-      revalidate: 60,
-    };
-  } else {
-    return {
-      props: {},
-    };
-  }
+  return {
+    props: {
+      author: author[0],
+    },
+    revalidate: 60,
+  };
 };
 
 export async function getStaticPaths() {

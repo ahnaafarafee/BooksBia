@@ -34,9 +34,9 @@ export default function Series(props) {
   return (
     <div>
       <MetaTags
-        title={`${series.name} | BooksBia`}
-        description={`Download or Read online all books of ${series.name} for free in PDF format.`}
-        image={series.photoUrl}
+        title={`${series?.name} | BooksBia`}
+        description={`Download or Read online all books of ${series?.name} for free in PDF format.`}
+        image={series?.photoUrl}
       />
       <main>
         <div className="container">
@@ -44,18 +44,18 @@ export default function Series(props) {
             <div className="col-lg-8">
               <div className={classes.imageBox}>
                 <img
-                  className={classes.img}
-                  src={series.photoUrl}
-                  alt={series.name}
+                  className={classes?.img}
+                  src={series?.photoUrl}
+                  alt={series?.name}
                 />
-                <span className={classes.header}>{series.name}</span>
+                <span className={classes.header}>{series?.name}</span>
               </div>
               <div className={classes.description}>
                 <TruncateString authorDesc={seriesDesc} max={800} />
               </div>
               <div className="content__box">
                 <h2 className="content__main-heading">
-                  All Books of {series.name}
+                  All Books of {series?.name}
                 </h2>
                 <div className="content__row">
                   {booksBySeries.length ? (
@@ -97,18 +97,12 @@ export const getStaticProps = async (context) => {
   const { slug } = context.params;
   const res = await db.collection("series").where("slug", "==", slug).get();
   const series = res.docs.map((series) => series.data());
-  if (series.length) {
-    return {
-      props: {
-        series: series[0],
-      },
-      revalidate: 60,
-    };
-  } else {
-    return {
-      props: {},
-    };
-  }
+  return {
+    props: {
+      series: series[0],
+    },
+    revalidate: 60,
+  };
 };
 export async function getStaticPaths() {
   const snapshot = await db.collection("series").get();

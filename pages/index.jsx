@@ -39,11 +39,11 @@ export default function Home() {
           ) : (
             filterBooks.map((filBook) => (
               <Filter
-                key={filBook.id}
-                imageUrl={filBook.book.imageUrl}
-                name={filBook.book.name}
-                author={filBook.book.author}
-                slug={filBook.book.slug}
+                key={filBook?.id}
+                imageUrl={filBook.book?.imageUrl}
+                name={filBook.book?.name}
+                author={filBook.book?.author}
+                slug={filBook.book?.slug}
               />
             ))
           )}

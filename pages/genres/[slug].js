@@ -29,8 +29,8 @@ export default function Genre(props) {
   return (
     <div>
       <MetaTags
-        title={`${genre.name} | BooksBia`}
-        description={`Download or Read online all books of ${genre.name} genre for free in PDF format.`}
+        title={`${genre?.name} | BooksBia`}
+        description={`Download or Read online all books of ${genre?.name} genre for free in PDF format.`}
         image="https://i.ibb.co/dBzFpCD/booksbia.png"
       />
       <main>
@@ -39,7 +39,7 @@ export default function Genre(props) {
             <div className="col-lg-8">
               <div className="content__box">
                 <h2 className="content__main-heading">
-                  All Books of {genre.name} genre
+                  All Books of {genre?.name} genre
                 </h2>
                 <div className="content__row">
                   {booksByGenre.length ? (
@@ -81,18 +81,7 @@ export const getStaticProps = async (context) => {
   const { slug } = context.params;
   const res = await db.collection("genres").where("slug", "==", slug).get();
   const genre = res.docs.map((genre) => genre.data());
-  if (genre.length) {
-    return {
-      props: {
-        genre: genre[0],
-      },
-      revalidate: 60,
-    };
-  } else {
-    return {
-      props: {},
-    };
-  }
+  return { props: { genre: genre[0] }, revalidate: 60 };
 };
 
 export async function getStaticPaths() {

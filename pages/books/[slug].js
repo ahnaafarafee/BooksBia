@@ -23,11 +23,11 @@ export default function bookDetails(props) {
   const [bookByAuthor, setBookByAuthor] = useState([]);
   const [currentUrl, setCurrentUrl] = useState("");
 
-  const dateCreated = book.createdAt;
+  const dateCreated = book?.createdAt;
 
   const date = moment(dateCreated).format("LL");
 
-  const authorDesc = book.authorDetails;
+  const authorDesc = book?.authorDetails;
 
   useEffect(() => {
     db.collection("books")
@@ -44,8 +44,8 @@ export default function bookDetails(props) {
   return (
     <>
       <MetaTags
-        title={`${book.name} by ${book.author} | BooksBia`}
-        description={`Download or Read online ${book.name} by ${book.author} for free in PDF format.`}
+        title={`${book?.name} by ${book?.author} | BooksBia`}
+        description={`Download or Read online ${book?.name} by ${book?.author} for free in PDF format.`}
         image={book.imageUrl}
       />
       <main className="container">
@@ -54,51 +54,51 @@ export default function bookDetails(props) {
             <div className="preview">
               <div className="preview__img--box">
                 <img
-                  src={book.imageUrl}
+                  src={book?.imageUrl}
                   alt="Preview Book"
                   className="preview__img"
                 />
               </div>
               <div className="preview__details">
-                <span className="preview__heading">{book.name}</span>
-                <span className="preview__heading">{book.author}</span>
+                <span className="preview__heading">{book?.name}</span>
+                <span className="preview__heading">{book?.author}</span>
                 <span className="preview__heading">Last Update: {date}</span>
               </div>
             </div>
             {/* react share buttons */}
             <SocialShare
               url={String(currentUrl)}
-              title={book.name}
+              title={book?.name}
               size="2.5rem"
-              shareImage={book.imageUrl}
+              shareImage={book?.imageUrl}
             />
             <div className="details">
               <div className="details__book">
                 <h2 className="details__heading">
                   Read the book description before downloading
                 </h2>
-                <p className="details__main">{book.bookDetails}</p>
+                <p className="details__main">{book?.bookDetails}</p>
               </div>
               <div className="details__author">
-                <h2 className="details__heading">About {book.author}</h2>
+                <h2 className="details__heading">About {book?.author}</h2>
                 <div className="details__main">
                   <TruncateString authorDesc={authorDesc} max={800} />
                 </div>
               </div>
             </div>
             <div className="button">
-              <a href={book.link} target="_blank" className="button-download">
+              <a href={book?.link} target="_blank" className="button-download">
                 Read Online
               </a>
               <span> or </span>
-              <a href={book.dlink} target="_blank" className="button-download">
+              <a href={book?.dlink} target="_blank" className="button-download">
                 Download
               </a>
             </div>
             <Feature isInSlug />
             <div className="content__box">
               <h2 className="content__main-heading">
-                More books by {book.author}
+                More books by {book?.author}
               </h2>
               <div className="content__row">
                 {bookByAuthor.length ? (
@@ -139,18 +139,7 @@ export const getStaticProps = async (context) => {
   const { slug } = context.params;
   const res = await db.collection("books").where("slug", "==", slug).get();
   const book = res.docs.map((book) => toJSON(book));
-  if (book.length) {
-    return {
-      props: {
-        book: book[0],
-      },
-      revalidate: 60,
-    };
-  } else {
-    return {
-      props: {},
-    };
-  }
+  return { props: { book: book[0] }, revalidate: 20 }; //revalidate every 20 seconds
 };
 export async function getStaticPaths() {
   const snapshot = await db.collection("books").get();
