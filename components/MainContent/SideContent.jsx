@@ -3,9 +3,9 @@ import { useContext } from "react";
 import Loader from "react-loader-spinner";
 
 import SideContentHead from "../SideContentHead/SideContentHead";
-import SideContentBooks from "./sideContentBooks";
 
 import { NewAddedBookContext } from "../../fetchData/context/NewAddedBookContext";
+import SideContentBooks from "./SideContentBooks";
 
 export default function SideContent() {
   const [newBooks, setNewBooks] = useContext(NewAddedBookContext);
