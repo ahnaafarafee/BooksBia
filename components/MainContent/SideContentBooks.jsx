@@ -1,9 +1,6 @@
 import Link from "next/link";
 
-import moment from "moment";
-
 function SideContentBooks({ imageUrl, name, author, slug, createdAt }) {
-  
   const dateCreated = createdAt.toDate();
   const date = dateCreated.toDateString();
 
