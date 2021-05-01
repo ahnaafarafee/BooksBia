@@ -37,3 +37,7 @@ yarn-error.log*
 /link-gen.md
 
 .vscode
+
+# # next-pwa
+# /public/sw.js
+# /public/workbox-*.js
