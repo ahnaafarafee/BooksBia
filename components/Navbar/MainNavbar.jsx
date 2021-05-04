@@ -8,17 +8,7 @@ const db = firebase.firestore();
 const LOGO_LINK =
   "https://firebasestorage.googleapis.com/v0/b/booksiba-28d4a.appspot.com/o/logo.svg?alt=media&token=17ac9b41-d2a8-4b8f-a774-96432659365b";
 
-const menuContent = [
-  "Read Blog",
-  "Writers collection",
-  "Series collection",
-  "Become a Writer",
-  "Terms of Use",
-  "Contact Us",
-  "Privacy Policy",
-];
-
-export default function Nav() {
+export default function MainNavbar() {
   const [authors, setAuthors] = useState([]);
   const [series, setSeries] = useState([]);
   const [genres, setGenres] = useState([]);
@@ -80,12 +70,12 @@ export default function Nav() {
           <div className="nav-toggle">
             <ul className="nav-toggle__list">
               <li className="nav-toggle__item">
-                <Link href="/blog">
-                  <a className="nav-toggle__link">Blog</a>
-                </Link>
+                <a href="/blog" target="_blank" className="nav-toggle__link">
+                  Blog
+                </a>
               </li>
               <li className="nav-toggle__item">
-                <a href="#" className="nav-toggle__link">
+                <a href="/blog" target="_blank" className="nav-toggle__link">
                   Become a Writer
                 </a>
               </li>
@@ -188,12 +178,14 @@ export default function Nav() {
         <div className="container">
           <div className="dropdown">
             <div className="drop-list">
-              <Link href="/blog">
+              <a href="/blog" target="_blank">
                 <button className="cta">Blog</button>
-              </Link>
+              </a>
             </div>
             <div className="drop-list">
-              <button className="cta">Become a Writer</button>
+              <a href="/blog" target="_blank">
+                <button className="cta">Become a Writer</button>
+              </a>
             </div>
 
             <div className="drop-list">

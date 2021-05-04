@@ -52,15 +52,15 @@ function Footer() {
                   </ul>
                   <div className="footer__follow-section">
                     <a
-                      href="https://facebook.com/ahnaaf.a.rafee"
+                      href="https://facebook.com/"
                       target="_blank"
                     >
                       <i className="fab fa-facebook"></i>
                     </a>
-                    <a href="https://twitter.com/ahnaaf_al" target="_blank">
+                    <a href="https://twitter.com/" target="_blank">
                       <i className="fab fa-twitter-square"></i>
                     </a>
-                    <a href="https://instagram.com/ahnaaf__" target="_blank">
+                    <a href="https://instagram.com/" target="_blank">
                       <i className="fab fa-instagram-square"></i>
                     </a>
                     <a href="https://youtube.com" target="_blank">
