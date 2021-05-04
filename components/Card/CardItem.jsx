@@ -10,7 +10,7 @@ const CardItem = ({ title, subtitle, image, date, author, link }) => {
       <div className="card-body-wrapper">
         <Card.Header className="d-flex flex-row">
           <img
-            src={author?.image || "https://via.placeholder.com/150"}
+            src={author?.image || "https://i.ibb.co/nzvyrgk/default-user.png"}
             className="rounded-circle mr-3"
             height="50px"
             width="50px"

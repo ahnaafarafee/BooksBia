@@ -12,11 +12,11 @@ export default function BlogHeader({
         <h2 className="subtitle">{subtitle}</h2>
         <p className="lead mb-0">
           <img
-            src={author?.image}
+            src={author?.image || "https://i.ibb.co/nzvyrgk/default-user.png"}
             className="rounded-circle mr-3"
             height="70px"
             width="70px"
-            alt={author?.name}
+            alt={author?.name || "random user"}
           />
           <span className="author-name">
             {author?.name}

@@ -40,27 +40,27 @@ export default function Blog({ blogs }) {
                 filter.view.list ? (
                   <Col key={`${blog.slug}-list`} md="9">
                     <CardListItem
-                      author={blog.author}
-                      title={blog.title}
-                      subtitle={blog.subtitle}
-                      date={moment(blog.date).format("LLL")}
+                      author={blog?.author}
+                      title={blog?.title}
+                      subtitle={blog?.subtitle}
+                      date={moment(blog?.date).format("LLL")}
                       link={{
                         href: "/blog/[slug]",
-                        as: `/blog/${blog.slug}`,
+                        as: `/blog/${blog?.slug}`,
                       }}
                     />
                   </Col>
                 ) : (
-                  <Col key={blog.slug} md="4">
+                  <Col key={blog?.slug} md="4">
                     <CardItem
-                      author={blog.author}
-                      title={blog.title}
-                      subtitle={blog.subtitle}
-                      date={moment(blog.date).format("LLL")}
-                      image={blog.coverImage}
+                      author={blog?.author}
+                      title={blog?.title}
+                      subtitle={blog?.subtitle}
+                      date={moment(blog?.date).format("LLL")}
+                      image={blog?.coverImage}
                       link={{
                         href: "/blog/[slug]",
-                        as: `/blog/${blog.slug}`,
+                        as: `/blog/${blog?.slug}`,
                       }}
                     />
                   </Col>
