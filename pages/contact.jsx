@@ -2,6 +2,8 @@ import { useState } from "react";
 import Loader from "react-loader-spinner";
 import firebase from "../services/firebase";
 
+import Head from "next/head";
+
 const db = firebase.firestore();
 
 export default function contactForm() {
@@ -37,6 +39,9 @@ export default function contactForm() {
 
   return (
     <div className="blog-detail-page">
+      <Head>
+        <title> Contact | Booksbia</title>
+      </Head>
       <form className="form" onSubmit={handleSubmit}>
         <h1>Contact Us 🤳</h1>
         <h3>

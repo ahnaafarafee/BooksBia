@@ -1,6 +1,11 @@
+import Head from "next/head";
+
 export default function privacyPolicy() {
   return (
     <div className="blog-detail-page">
+       <Head>
+        <title> Privacy Policy | Booksbia</title>
+      </Head>
       <h1>Privacy Policy</h1>
       <p>Last updated: April 29, 2021</p>
       <p>

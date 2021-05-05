@@ -70,14 +70,14 @@ export default function MainNavbar() {
           <div className="nav-toggle">
             <ul className="nav-toggle__list">
               <li className="nav-toggle__item">
-                <a href="/blog" target="_blank" className="nav-toggle__link">
-                  Blog
-                </a>
+                <Link href="/blog">
+                  <a className="nav-toggle__link">Blog</a>
+                </Link>
               </li>
               <li className="nav-toggle__item">
-                <a href="/blog" target="_blank" className="nav-toggle__link">
-                  Become a Writer
-                </a>
+                <Link href="/write-in-blog">
+                  <a className="nav-toggle__link">Write Blog</a>
+                </Link>
               </li>
               <li className="nav-toggle__item">
                 <div className="drop-list">
@@ -183,14 +183,18 @@ export default function MainNavbar() {
         <div className="container">
           <div className="dropdown">
             <div className="drop-list">
-              <a href="/blog" target="_blank">
-                <button className="cta">Blog</button>
-              </a>
+              <Link href="/blog">
+                <a>
+                  <button className="cta">Blog</button>
+                </a>
+              </Link>
             </div>
             <div className="drop-list">
-              <a href="/blog" target="_blank">
-                <button className="cta">Become a Writer</button>
-              </a>
+              <Link href="/write-in-blog">
+                <a>
+                  <button className="cta">Write Blog</button>
+                </a>
+              </Link>
             </div>
 
             <div className="drop-list">

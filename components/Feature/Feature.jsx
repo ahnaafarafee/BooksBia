@@ -23,7 +23,7 @@ export default function Feature({ isInSlug }) {
                   Or Do You Want To Be A Writer?
                 </h3>
                 <div className="feature__button">
-                  <Link href="/blog">
+                  <Link href="/write-in-blog">
                     <a className="cta cta-feature">Write Blog</a>
                   </Link>
                   <Link href="/blog">

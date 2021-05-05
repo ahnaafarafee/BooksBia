@@ -1,8 +1,12 @@
-import React from "react";
+import Head from "next/head";
+import Link from "next/link";
 
 export default function copyright() {
   return (
     <div className="blog-detail-page">
+      <Head>
+        <title> Copyright Declaimer | Booksbia</title>
+      </Head>
       <h1>Copyright Declaimer</h1>
       <h4>
         BooksBia is a free online E-book library. We respect copyright issues.
@@ -15,6 +19,9 @@ export default function copyright() {
         website, and you want to take down our books please inform us at{" "}
         <strong>booksbiaeditor@gmail.com</strong>, We would immediately remove
         your copyrighted materials from our site.
+        <Link href="/contact">
+          <a style={{ color: "blue" }}>Contact us</a>
+        </Link>
       </h4>
     </div>
   );

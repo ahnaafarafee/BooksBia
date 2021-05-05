@@ -1,6 +1,11 @@
+import Head from "next/head";
+
 export default function termsAndConditions() {
   return (
     <div className="blog-detail-page">
+      <Head>
+        <title> Terms and Conditions | Booksbia</title>
+      </Head>
       <h1>Terms and Conditions</h1>
       <p>Last updated: April 29, 2021</p>
       <p>

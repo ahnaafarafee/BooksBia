@@ -20,9 +20,12 @@ export default function BlogNavbar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-            <Nav.Link href="/" target="_blank">
-              Home
-            </Nav.Link>
+            <Link href="/">
+              <a className="nav-link">Home</a>
+            </Link>
+            <Link href="/write-in-blog">
+              <a className="nav-link">Write Blog</a>
+            </Link>
             <Nav.Link href="https://facebook.com/" target="_blank">
               <i className="fab fa-facebook"></i>
             </Nav.Link>
