@@ -30,9 +30,9 @@ function Footer() {
                       </a>
                     </li>
                     <li className="footer__item">
-                      <a href="#" className="footer__link">
-                        Contact Us
-                      </a>
+                      <Link href="/contact">
+                        <a className="footer__link">Contact Us</a>
+                      </Link>
                     </li>
                     <li className="footer__item">
                       <Link href="/copyright">
@@ -51,10 +51,7 @@ function Footer() {
                     </li>
                   </ul>
                   <div className="footer__follow-section">
-                    <a
-                      href="https://facebook.com/"
-                      target="_blank"
-                    >
+                    <a href="https://facebook.com/" target="_blank">
                       <i className="fab fa-facebook"></i>
                     </a>
                     <a href="https://twitter.com/" target="_blank">

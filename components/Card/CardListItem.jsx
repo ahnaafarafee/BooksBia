@@ -28,7 +28,7 @@ const CardListItem = ({ title, subtitle, date, author, link }) => {
       </div>
       {link && (
         <Link {...link}>
-          <a className="card-button">Read More</a>
+          <button className="cta">Read More</button>
         </Link>
       )}
     </Card>

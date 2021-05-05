@@ -169,6 +169,11 @@ export default function MainNavbar() {
                   <a className="nav-toggle__link">Copyright Issue</a>
                 </Link>
               </li>
+              <li className="nav-toggle__item">
+                <Link href="/contact">
+                  <a className="nav-toggle__link">Contact Us</a>
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

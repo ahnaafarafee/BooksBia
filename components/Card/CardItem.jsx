@@ -25,7 +25,7 @@ const CardItem = ({ title, subtitle, image, date, author, link }) => {
         </Card.Header>
         <div className="view overlay">
           <Card.Img
-            src={urlFor(image).height(300).url()}
+            src={urlFor(image).height(200).url()}
             alt="Card image cap"
           />
         </div>
@@ -36,7 +36,7 @@ const CardItem = ({ title, subtitle, image, date, author, link }) => {
       </div>
       {link && (
         <Link {...link}>
-          <a className="card-button">Read More</a>
+          <button className="cta">Read More</button>
         </Link>
       )}
     </Card>
