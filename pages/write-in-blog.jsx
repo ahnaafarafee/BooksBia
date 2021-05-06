@@ -37,7 +37,10 @@ export default function writeInBlog() {
         <br />
         <h3>
           Or you can submit in our{" "}
-          <a style={{ color: "blue" }} href="https://facebook.com/">
+          <a
+            style={{ color: "blue" }}
+            href="https://www.facebook.com/groups/524017418618959"
+          >
             Facebook Group
           </a>
         </h3>

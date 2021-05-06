@@ -51,17 +51,11 @@ function Footer() {
                     </li>
                   </ul>
                   <div className="footer__follow-section">
-                    <a href="https://facebook.com/" target="_blank">
+                    <a
+                      href="https://www.facebook.com/groups/524017418618959"
+                      target="_blank"
+                    >
                       <i className="fab fa-facebook"></i>
-                    </a>
-                    <a href="https://twitter.com/" target="_blank">
-                      <i className="fab fa-twitter-square"></i>
-                    </a>
-                    <a href="https://instagram.com/" target="_blank">
-                      <i className="fab fa-instagram-square"></i>
-                    </a>
-                    <a href="https://youtube.com" target="_blank">
-                      <i className="fab fa-youtube-square"></i>
                     </a>
                   </div>
                 </div>

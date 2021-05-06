@@ -26,7 +26,10 @@ export default function BlogNavbar() {
             <Link href="/write-in-blog">
               <a className="nav-link">Write Blog</a>
             </Link>
-            <Nav.Link href="https://facebook.com/" target="_blank">
+            <Nav.Link
+              href="https://www.facebook.com/groups/524017418618959"
+              target="_blank"
+            >
               <i className="fab fa-facebook"></i>
             </Nav.Link>
           </Nav>
