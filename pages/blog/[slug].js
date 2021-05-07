@@ -21,7 +21,7 @@ export default function BlogDetail({ blog }) {
     <>
       <MetaTags
         title={`${blog.title} | Booksbia Blog`}
-        description={`Read awesome blog post ${blog.title} by ${blog.author}`}
+        description={`Read awesome blog post ${blog.title} by ${blog.author.name}`}
         image={urlFor(blog.coverImage).url()}
       />
       <div className="blog-detail-page">
