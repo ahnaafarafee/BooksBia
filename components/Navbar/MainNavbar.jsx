@@ -5,9 +5,6 @@ import firebase from "../../services/firebase";
 
 const db = firebase.firestore();
 
-const LOGO_LINK =
-  "https://firebasestorage.googleapis.com/v0/b/booksiba-28d4a.appspot.com/o/logo.svg?alt=media&token=17ac9b41-d2a8-4b8f-a774-96432659365b";
-
 export default function MainNavbar() {
   const [authors, setAuthors] = useState([]);
   const [series, setSeries] = useState([]);
@@ -58,7 +55,7 @@ export default function MainNavbar() {
           </button>
           <Link href="/" className="navbar-brand">
             <img
-              src={LOGO_LINK || "/logo/logo.svg"}
+              src="/logo/logo.svg"
               className="logo"
               alt="Booksbia"
               width="120"

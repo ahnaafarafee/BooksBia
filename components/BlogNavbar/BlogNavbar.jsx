@@ -6,6 +6,7 @@ export default function BlogNavbar() {
   return (
     <>
       <Navbar bg="white" expand="lg">
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Link href="/blog">
           <Navbar.Brand>
             <img
@@ -17,7 +18,6 @@ export default function BlogNavbar() {
             />
           </Navbar.Brand>
         </Link>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
             <Link href="/">

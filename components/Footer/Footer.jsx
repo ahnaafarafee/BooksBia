@@ -1,8 +1,5 @@
 import Link from "next/link";
 
-const LOGO_LINK =
-  "https://firebasestorage.googleapis.com/v0/b/booksiba-28d4a.appspot.com/o/logo.svg?alt=media&token=17ac9b41-d2a8-4b8f-a774-96432659365b";
-
 function Footer() {
   return (
     <div className="container">
@@ -11,10 +8,7 @@ function Footer() {
           <div className="row">
             <div className="col-md-4 offset-md-4">
               <div className="footer__logo-box">
-                <img
-                  src={LOGO_LINK || "/logo/logo.svg"}
-                  className="footer__logo"
-                />
+                <img src="/logo/logo.svg" className="footer__logo" />
               </div>
             </div>
           </div>
