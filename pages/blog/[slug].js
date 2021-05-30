@@ -20,7 +20,7 @@ export default function BlogDetail({ blog }) {
   return (
     <>
       <MetaTags
-        title={`${blog.title} | Booksbia Blog`}
+        title={`${blog.title} | Deyal`}
         description={`Read awesome blog post ${blog.title} by ${blog.author.name}`}
         image={urlFor(blog.coverImage).url()}
       />

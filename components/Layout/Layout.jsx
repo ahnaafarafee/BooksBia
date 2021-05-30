@@ -22,13 +22,9 @@ function Layout({ children }) {
         <title>BooksBia | Download and Read Ebooks For Free</title>
       </Head>
       <div className="container">
-        {router.route === "/blog" || router.route === "/blog/[slug]" ? (
-          <BlogNavbar />
-        ) : (
-          <MainNavbar />
-        )}
+        <BlogNavbar />
         {children}
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </>
   );

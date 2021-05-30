@@ -20,11 +20,8 @@ export default function BlogNavbar() {
         </Link>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-            <Link href="/">
+            <Link href="/blog">
               <a className="nav-link">Home</a>
-            </Link>
-            <Link href="/write-in-blog">
-              <a className="nav-link">Write Blog</a>
             </Link>
             <Nav.Link
               href="https://www.facebook.com/groups/524017418618959"

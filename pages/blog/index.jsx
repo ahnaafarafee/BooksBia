@@ -20,7 +20,7 @@ export default function Blog({ blogs }) {
   return (
     <>
       <MetaTags
-        title={`Blog | BooksBia`}
+        title={`Deyal`}
         description={`Read awesome blog posts by renowned authors daily!`}
         image="https://i.ibb.co/dBzFpCD/booksbia.png"
       />
