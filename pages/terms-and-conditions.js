@@ -4,7 +4,7 @@ export default function termsAndConditions() {
   return (
     <div className="blog-detail-page">
       <Head>
-        <title> Terms and Conditions | Booksbia</title>
+        <title> Terms and Conditions | Deyal</title>
       </Head>
       <h1>Terms and Conditions</h1>
       <p>Last updated: April 29, 2021</p>
@@ -41,7 +41,7 @@ export default function termsAndConditions() {
           <p>
             <strong>Company</strong> (referred to as either &quot;the
             Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot; in
-            this Agreement) refers to BooksBia.
+            this Agreement) refers to Deyal.
           </p>
         </li>
         <li>
@@ -81,13 +81,13 @@ export default function termsAndConditions() {
         </li>
         <li>
           <p>
-            <strong>Website</strong> refers to BooksBia, accessible from{" "}
+            <strong>Website</strong> refers to Deyal, accessible from{" "}
             <a
-              href="https://booksbia.com"
+              href="https://read-deyal.com"
               rel="external nofollow noopener"
               target="_blank"
             >
-              https://booksbia.com
+              https://read-deyal.com
             </a>
           </p>
         </li>

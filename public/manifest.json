@@ -1,7 +1,7 @@
 {
   "name": "Deyal",
   "short_name": "Deyal",
-  "theme_color": "#F89880",
+  "theme_color": "#17202a",
   "background_color": "#fff",
   "display": "standalone",
   "start_url": "/",

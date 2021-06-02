@@ -6,7 +6,7 @@ class CustomDocument extends Document {
       <Html lang="en">
         <Head>
           <link rel="manifest" href="/manifest.json" />
-          <meta name="msapplication-TileColor" content="#ffffff" />
+          <meta name="msapplication-TileColor" content="#17202a" />
           <meta name="theme-color" content="#F89880" />
           <meta charSet="utf-8" />
           <meta name="browsermode" content="application" />

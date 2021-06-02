@@ -23,17 +23,26 @@ export default function BlogNavbar() {
             <Link href="/blog">
               <a className="nav-link">Home</a>
             </Link>
+            <Link href="/contact">
+              <a className="nav-link">Contact Us</a>
+            </Link>
+            <Link href="/copyright">
+              <a className="nav-link">Copyright Issue</a>
+            </Link>
+            <Link href="/privacy-policy">
+              <a className="nav-link">Privacy Policy</a>
+            </Link>
+            <Link href="/terms-and-conditions">
+              <a className="nav-link">Terms And Conditions</a>
+            </Link>
             <Nav.Link
-              href="https://www.facebook.com/groups/524017418618959"
+              rel="nofollow"
+              href="https://www.facebook.com/groups/readdeyal"
               target="_blank"
             >
               <i className="fab fa-facebook"></i>
             </Nav.Link>
           </Nav>
-          {/* <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-success">Search</Button>
-          </Form> */}
         </Navbar.Collapse>
       </Navbar>
     </>

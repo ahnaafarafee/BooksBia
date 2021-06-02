@@ -14,8 +14,6 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 
 import "../styles/globals.scss";
 
-import { NewAddedBookProvider } from "../fetchData/context/NewAddedBookContext";
-
 function MyApp({ Component, pageProps }) {
   return (
     <>
@@ -25,11 +23,10 @@ function MyApp({ Component, pageProps }) {
           content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
         />
       </Head>
-      <NewAddedBookProvider>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </NewAddedBookProvider>
+
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </>
   );
 }

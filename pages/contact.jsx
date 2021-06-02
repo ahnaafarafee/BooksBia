@@ -40,12 +40,12 @@ export default function contactForm() {
   return (
     <div className="blog-detail-page">
       <Head>
-        <title> Contact | Booksbia</title>
+        <title> Contact | Deyal</title>
       </Head>
       <form className="form" onSubmit={handleSubmit}>
         <h1>Contact Us 🤳</h1>
         <h3>
-          Contact us if you have any questions of inquiries. Please put a valid
+          Contact us if you have any questions or inquiries. Please put a valid
           email address, so that we can contact you afterwards. Be patient, our
           response could delay upto 12-24 working hours. Thank you.
         </h3>

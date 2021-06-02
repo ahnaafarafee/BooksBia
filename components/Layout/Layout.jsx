@@ -2,8 +2,6 @@ import Router, { useRouter } from "next/router";
 import Head from "next/head";
 import nProgress from "nprogress";
 
-import Footer from "../Footer/Footer";
-import MainNavbar from "../Navbar/MainNavbar";
 import BlogNavbar from "../BlogNavbar/BlogNavbar";
 
 Router.onRouteChangeStart = (url) => {
@@ -15,7 +13,6 @@ Router.onRouteChangeError = () => nProgress.done();
 
 function Layout({ children }) {
   const router = useRouter();
-
   return (
     <>
       <Head>
