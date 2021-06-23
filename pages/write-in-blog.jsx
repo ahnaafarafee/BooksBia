@@ -16,7 +16,7 @@ export default function writeInBlog() {
   return (
     <div className="blog-detail-page main">
       <Head>
-        <title> Write Blog | Booksbia</title>
+        <title> Write Blog | Deyal</title>
       </Head>
       <div className="content">
         <h1>Write in blog</h1>
@@ -38,8 +38,9 @@ export default function writeInBlog() {
         <h3>
           Or you can submit in our{" "}
           <a
+            target="_blank"
             style={{ color: "blue" }}
-            href="https://www.facebook.com/groups/524017418618959"
+            href="https://www.facebook.com/groups/readdeyal"
           >
             Facebook Group
           </a>

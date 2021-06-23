@@ -23,6 +23,9 @@ export default function BlogNavbar() {
             <Link href="/blog">
               <a className="nav-link">Home</a>
             </Link>
+            <Link href="/write-in-blog">
+              <a className="nav-link">Write</a>
+            </Link>
             <Link href="/contact">
               <a className="nav-link">Contact Us</a>
             </Link>

@@ -7,7 +7,7 @@ class CustomDocument extends Document {
         <Head>
           <link rel="manifest" href="/manifest.json" />
           <meta name="msapplication-TileColor" content="#17202a" />
-          <meta name="theme-color" content="#F89880" />
+          <meta name="theme-color" content="##17202a" />
           <meta charSet="utf-8" />
           <meta name="browsermode" content="application" />
           <meta name="apple-mobile-web-app-title" content="Deyal" />
