@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import Head from "next/head";
+
+import Link from "next/link";
 
 import moment from "moment";
 
@@ -25,6 +26,12 @@ export default function BlogDetail({ blog }) {
         image={urlFor(blog.coverImage).url()}
       />
       <div className="blog-detail-page">
+        <Link href="/blog">
+          <i
+            style={{ cursor: "pointer" }}
+            className="fas fa-long-arrow-alt-left fa-2x"
+          ></i>
+        </Link>
         <Row>
           <Col md={{ span: 10, offset: 1 }}>
             <BlogHeader

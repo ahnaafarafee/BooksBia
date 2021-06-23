@@ -1,7 +1,8 @@
 export default function Home() {
   return (
     <div>
-      <h1>Hello World</h1>
+      <h1>Deyal</h1>
+      <a href="/blog">main page</a>
     </div>
   );
 }
