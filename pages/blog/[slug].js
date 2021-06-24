@@ -14,6 +14,8 @@ import MetaTags from "../../components/MetaTags/MetaTags";
 export default function BlogDetail({ blog }) {
   const [currentUrl, setCurrentUrl] = useState("");
 
+  const blog_context = blog.body[0].children[0].text;
+
   useEffect(() => {
     setCurrentUrl(window.location.href);
   }, []);
@@ -22,7 +24,7 @@ export default function BlogDetail({ blog }) {
     <>
       <MetaTags
         title={`${blog.title} | Deyal`}
-        description={`Read awesome blog post ${blog.title} by ${blog.author.name}`}
+        description={`${blog.title} by ${blog.author.name}. ${blog_context}`}
         image={urlFor(blog.coverImage).url()}
       />
       <div className="blog-detail-page">
