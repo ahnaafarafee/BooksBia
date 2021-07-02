@@ -39,11 +39,16 @@ export default function BlogNavbar() {
               <a className="nav-link">Terms And Conditions</a>
             </Link>
             <Nav.Link
-              rel="nofollow"
               href="https://www.facebook.com/groups/readdeyal"
               target="_blank"
             >
               <i className="fab fa-facebook"></i>
+            </Nav.Link>
+            <Nav.Link
+              href="https://www.pinterest.com/ahnaafalrafee/reviews-and-poems/"
+              target="_blank"
+            >
+              <i class="fab fa-pinterest"></i>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

@@ -60,6 +60,10 @@ class CustomDocument extends Document {
             color="#5bbad5"
           />
           <meta name="msapplication-TileColor" content="#da532c" />
+          <meta
+            name="p:domain_verify"
+            content="61fa1922fc4550d4a491930c607c6ac9"
+          />
           <script
             defer
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
