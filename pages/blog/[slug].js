@@ -51,7 +51,9 @@ export default function BlogDetail({ blog }) {
               size="2.5rem"
               shareImage={urlFor(blog.coverImage).url()}
             />
-            <BlogContent content={blog.body} />
+            <div className="content">
+              <BlogContent content={blog.body} />
+            </div>
           </Col>
         </Row>
       </div>
