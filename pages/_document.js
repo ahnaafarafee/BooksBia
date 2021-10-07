@@ -64,6 +64,10 @@ class CustomDocument extends Document {
             name="p:domain_verify"
             content="61fa1922fc4550d4a491930c607c6ac9"
           />
+          <meta
+            name="msvalidate.01"
+            content="3DD31F288181C2BA2743C92FF088FD53"
+          />
           <script
             defer
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
