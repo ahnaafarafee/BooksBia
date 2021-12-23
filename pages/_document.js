@@ -23,7 +23,7 @@ class CustomDocument extends Document {
           />
           <meta
             name="keywords"
-            content="books, ebook, pdf, bangla, bengali books, humayun ahmed"
+            content="stories, bangla stories, articles, Ahnaaf Al Rafee, bengali books, book reviews"
           />
           <link
             rel="stylesheet"

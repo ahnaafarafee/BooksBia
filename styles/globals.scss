@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali&display=swap");
 
 $color-primary: #17202a;
 $color-primary-dark: #001d3f;
@@ -108,8 +108,9 @@ a {
 body {
   margin: 0;
   box-sizing: border-box;
-  font-family: "Comfortaa", cursive, sans-serif;
+  font-family: "Noto Serif Bengali", serif;
   background-color: $color-grey;
+  overflow-x: hidden;
 }
 
 .logo {

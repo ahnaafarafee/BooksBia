@@ -31,7 +31,7 @@ export default function BlogDetail({ blog }) {
         <Link href="/blog">
           <i
             style={{ cursor: "pointer" }}
-            className="fas fa-long-arrow-alt-left fa-2x"
+            className="fas fa-angle-left fa-2x"
           ></i>
         </Link>
         <Row>
@@ -41,7 +41,7 @@ export default function BlogDetail({ blog }) {
               subtitle={blog.subtitle}
               coverImage={urlFor(blog.coverImage).height(400).url()}
               author={blog.author}
-              date={moment(blog.date).format("LLL")}
+              date={moment(blog.date).format("LL")}
             />
             <hr />
             {/* react share buttons */}

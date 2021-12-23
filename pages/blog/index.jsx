@@ -43,7 +43,7 @@ export default function Blog({ blogs }) {
                       author={blog?.author}
                       title={blog?.title}
                       subtitle={blog?.subtitle}
-                      date={moment(blog?.date).format("LLL")}
+                      date={moment(blog?.date).format("LL")}
                       link={{
                         href: "/blog/[slug]",
                         as: `/blog/${blog?.slug}`,
@@ -56,7 +56,7 @@ export default function Blog({ blogs }) {
                       author={blog?.author}
                       title={blog?.title}
                       subtitle={blog?.subtitle}
-                      date={moment(blog?.date).format("LLL")}
+                      date={moment(blog?.date).format("LL")}
                       image={blog?.coverImage}
                       link={{
                         href: "/blog/[slug]",
