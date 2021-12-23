@@ -5,6 +5,7 @@ import imageUrlBuilder from "@sanity/image-url";
 const blogFields = `
   title,
   subtitle,
+  minutes,
   'slug': slug.current,
   "date": publishedAt,
   "author": author->{name, "image": image.asset->url},

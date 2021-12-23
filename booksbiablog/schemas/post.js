@@ -23,6 +23,11 @@ export default {
       },
     },
     {
+      title: "Minutes Read",
+      name: "minutes",
+      type: "number",
+    },
+    {
       name: "author",
       title: "Author",
       type: "reference",

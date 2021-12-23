@@ -12,6 +12,7 @@ import SocialShare from "../../components/SocialShare/SocialShare";
 import MetaTags from "../../components/MetaTags/MetaTags";
 
 export default function BlogDetail({ blog }) {
+  // console.log("CONSOLE LOG ->", blog);
   const [currentUrl, setCurrentUrl] = useState("");
 
   const blog_context = blog.body[0].children[0].text;
@@ -39,18 +40,21 @@ export default function BlogDetail({ blog }) {
             <BlogHeader
               title={blog.title}
               subtitle={blog.subtitle}
+              minutes={blog?.minutes}
               coverImage={urlFor(blog.coverImage).height(400).url()}
               author={blog.author}
               date={moment(blog.date).format("LL")}
             />
             <hr />
             {/* react share buttons */}
+            <h4>Share with</h4>
             <SocialShare
               url={String(currentUrl)}
               title={blog.title}
-              size="2.5rem"
+              size="3.5rem"
               shareImage={urlFor(blog.coverImage).url()}
             />
+            <br/>
             <div className="content">
               <BlogContent content={blog.body} />
             </div>

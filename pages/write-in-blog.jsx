@@ -19,7 +19,7 @@ export default function writeInBlog() {
         <title> Write Blog | Deyal</title>
       </Head>
       <div className="content">
-        <h1>Write in blog</h1>
+        <h1>Write in Deyal</h1>
         <h3>
           You can submit your writing(poems, stories, book reviews, etc.) here.
           Select your writing and submit it to us. We will monitor it and

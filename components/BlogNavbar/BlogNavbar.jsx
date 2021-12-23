@@ -48,7 +48,7 @@ export default function BlogNavbar() {
               href="https://www.pinterest.com/ahnaafalrafee/reviews-and-poems/"
               target="_blank"
             >
-              <i class="fab fa-pinterest"></i>
+              <i className="fab fa-pinterest"></i>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

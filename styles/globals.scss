@@ -181,8 +181,8 @@ main {
   &:visited {
     background-color: $color-primary;
     color: $color-grey;
-    font-size: 1.3rem;
-    font-weight: 300;
+    font-size: 1.6rem;
+    font-weight: 600;
     text-transform: uppercase;
     text-align: center;
     padding: 2rem 2rem;
@@ -757,7 +757,7 @@ main {
   // padding-top: 50px;
   .card-body-wrapper {
     background-color: #fff;
-    border-radius: 15px;
+    border-radius: 1rem;
     box-shadow: 2px 5px 25px rgba(0, 0, 0, 0.15);
     min-height: 280px;
     position: relative;
@@ -862,6 +862,7 @@ main {
 
 .card {
   margin-bottom: 60px;
+  border: none !important;
 }
 
 // HEADER STARTS
