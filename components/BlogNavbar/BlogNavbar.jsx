@@ -10,7 +10,7 @@ export default function BlogNavbar() {
         <Link href="/blog">
           <Navbar.Brand>
             <img
-              src="/logo/blog-logo.jpg"
+              src="/logo/logo-light.svg"
               alt="blog-logo"
               height="100px"
               width="100px"
