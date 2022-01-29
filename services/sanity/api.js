@@ -12,10 +12,41 @@ const blogFields = `
   "coverImage": mainImage,
 `;
 
+const categoryFields = `
+  title,
+  description,
+  slug
+`;
+
 const builder = imageUrlBuilder(client);
 
 export function urlFor(source) {
   return builder.image(source);
+}
+
+export async function getAllCategories() {
+  const results = await client.fetch(
+    `*[_type == "category"] | {${categoryFields}}`
+  );
+  return results;
+}
+
+export async function getBlogsByCat(slug) {
+  const result = await client.fetch(
+    `
+      *["${slug}" in categories[]->title] | order(_createdAt desc) {
+        "categories": categories[]->title,
+          title,
+         'slug': slug.current,
+          "author": author->{name, "image": image.asset->url},
+          subtitle,
+          "date": publishedAt,
+        "coverImage": mainImage,
+        }
+      `
+  );
+
+  return result;
 }
 
 export async function getAllBlogs() {

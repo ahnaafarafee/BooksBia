@@ -20,23 +20,29 @@ export default function BlogNavbar() {
         </Link>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-            <Link href="/blog">
-              <a className="nav-link">Home</a>
-            </Link>
             <Link href="/write-in-blog">
               <a className="nav-link">Write</a>
             </Link>
-            <Link href="/contact">
-              <a className="nav-link">Contact Us</a>
+            <Link href="/blog/categories">
+              <a className="nav-link">All Topics</a>
             </Link>
-            <Link href="/copyright">
-              <a className="nav-link">Copyright Issue</a>
+            <Link href="/blog/categories/review">
+              <a className="nav-link">Book Reviews</a>
             </Link>
-            <Link href="/privacy-policy">
-              <a className="nav-link">Privacy Policy</a>
+            <Link href="/blog/categories/science">
+              <a className="nav-link">Science</a>
             </Link>
-            <Link href="/terms-and-conditions">
-              <a className="nav-link">Terms And Conditions</a>
+            <Link href="/blog/categories/history-and-culture">
+              <a className="nav-link">History & Culture</a>
+            </Link>
+            <Link href="/blog/categories/pop-culture">
+              <a className="nav-link">Pop Culture</a>
+            </Link>
+            <Link href="/blog/categories/poem">
+              <a className="nav-link">Poetry</a>
+            </Link>
+            <Link href="/blog/categories/story">
+              <a className="nav-link">Stories</a>
             </Link>
             <Nav.Link
               href="https://www.facebook.com/groups/readdeyal"
