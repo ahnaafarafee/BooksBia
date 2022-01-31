@@ -3,6 +3,8 @@
 $color-primary: #17202a;
 $color-primary-dark: #001d3f;
 $color-primary-light: #101d2c;
+$color-primary-light-2: #343e49;
+
 
 $color-white: #ffff;
 
@@ -194,8 +196,8 @@ main {
   }
 
   &:hover {
-    background-color: white;
-    color: $color-black;
+    background-color: $color-primary-light-2;
+    color: $color-grey;
     border: 1px solid $color-grey;
   }
 

@@ -7,12 +7,18 @@ import moment from "moment";
 import { Col, Row } from "react-bootstrap";
 import BlogContent from "../../components/BlogContent/BlogContent";
 import BlogHeader from "../../components/BlogHeader/BlogHeader";
-import { getAllBlogs, getBlogBySlug, urlFor } from "../../services/sanity/api";
+import {
+  getAllBlogs,
+  getBlogBySlug,
+  urlFor,
+  getBlogsByCat,
+} from "../../services/sanity/api";
 import SocialShare from "../../components/SocialShare/SocialShare";
 import MetaTags from "../../components/MetaTags/MetaTags";
+import PostView from "../../components/PostView/PostView";
 
-export default function BlogDetail({ blog }) {
-  // console.log("CONSOLE LOG ->", blog);
+export default function BlogDetail({ blog, categories }) {
+  // console.log("CONSOLE LOG ->", categories);
   const [currentUrl, setCurrentUrl] = useState("");
 
   const blog_context = blog.body[0].children[0].text;
@@ -54,10 +60,12 @@ export default function BlogDetail({ blog }) {
               size="3.5rem"
               shareImage={urlFor(blog.coverImage).url()}
             />
-            <br/>
+            <br />
             <div className="content">
               <BlogContent content={blog.body} />
             </div>
+            <hr/>
+            <PostView categories={categories} />
           </Col>
         </Row>
       </div>
@@ -67,8 +75,10 @@ export default function BlogDetail({ blog }) {
 
 export async function getStaticProps({ params }) {
   const blog = await getBlogBySlug(params.slug);
+  const categories = await getBlogsByCat(blog.categories[0]);
+
   return {
-    props: { blog },
+    props: { blog, categories },
     revalidate: 60,
   };
 }

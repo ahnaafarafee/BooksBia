@@ -30,13 +30,17 @@ const CardItem = ({ title, subtitle, image, date, author, link }) => {
           />
         </div>
         <Card.Body>
-          <Card.Title className="card-main-title">{title}</Card.Title>
+          <Card.Title className="card-main-title">
+            <Link {...link}>
+              <a style={{ textDecoration: "none", color: "black" }}>{title}</a>
+            </Link>
+          </Card.Title>
           <Card.Text>{subtitle}</Card.Text>
         </Card.Body>
       </div>
       {link && (
         <Link {...link}>
-          <button className="cta">Read More</button>
+          <a className="cta">Read More</a>
         </Link>
       )}
     </Card>

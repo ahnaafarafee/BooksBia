@@ -10,6 +10,7 @@ const blogFields = `
   "date": publishedAt,
   "author": author->{name, "image": image.asset->url},
   "coverImage": mainImage,
+  "categories":categories[]->slug.current,
 `;
 
 const categoryFields = `
@@ -41,7 +42,8 @@ export async function getBlogsByCat(slug) {
           "author": author->{name, "image": image.asset->url},
           subtitle,
           "date": publishedAt,
-        "coverImage": mainImage,
+          "coverImage": mainImage,
+          body[]{..., "asset": asset->}
         }
       `
   );

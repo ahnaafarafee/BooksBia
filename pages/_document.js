@@ -11,7 +11,7 @@ class CustomDocument extends Document {
           <meta charSet="utf-8" />
           <meta name="browsermode" content="application" />
           <meta name="apple-mobile-web-app-title" content="Deyal" />
-          <meta name="apple-mobile-web-app-capable" content="yes" />
+          <meta name="apple-mobile-web-app-capable" content="yes" /> 
           <meta
             name="apple-mobile-web-app-status-bar-style"
             content="default"
